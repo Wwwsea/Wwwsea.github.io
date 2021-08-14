@@ -101,9 +101,9 @@
     <category term="hexo" scheme="http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/hexo/"/>
     
     
-    <category term="博客" scheme="http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="hexo" scheme="http://ze520.cn/tags/hexo/"/>
+    
+    <category term="博客" scheme="http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -158,9 +158,9 @@
     <category term="博客" scheme="http://ze520.cn/categories/hexo/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="博客" scheme="http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="hexo" scheme="http://ze520.cn/tags/hexo/"/>
+    
+    <category term="博客" scheme="http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
