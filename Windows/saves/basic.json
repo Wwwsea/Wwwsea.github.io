@@ -220,7 +220,7 @@
             "desc": "个人博客",
             "icon": {
                 "type": "img",
-                "content": "http://imagehosting.biz/images/2021/07/22/avatar.jpg",
+                "content": "https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/avatar.jpg",
                 "bg": "#6b96cf"
             },
             "openMode": "normal",
