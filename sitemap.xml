@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ze520.cn/List/Gallery/index.html</loc>
+    <loc>http://ze520.cn/List/gallery/ohmygirl/index.html</loc>
     
     <lastmod>2021-09-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ze520.cn/List/Gallery/wallpaper/index.html</loc>
+    <loc>http://ze520.cn/List/gallery/index.html</loc>
     
     <lastmod>2021-09-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ze520.cn/List/Gallery/ohmygirl/index.html</loc>
+    <loc>http://ze520.cn/List/gallery/wallpaper/index.html</loc>
     
     <lastmod>2021-09-28</lastmod>
     
@@ -186,6 +186,20 @@
   </url>
   
   <url>
+    <loc>http://ze520.cn/tags/hexo/</loc>
+    <lastmod>2021-09-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2021-09-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ze520.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%88AI%EF%BC%89/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
@@ -201,20 +215,6 @@
   
   <url>
     <loc>http://ze520.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://ze520.cn/tags/hexo/</loc>
-    <lastmod>2021-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -272,6 +272,13 @@
   </url>
   
   <url>
+    <loc>http://ze520.cn/categories/hexo/</loc>
+    <lastmod>2021-09-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ze520.cn/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%88AI%EF%BC%89/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
@@ -279,7 +286,7 @@
   </url>
   
   <url>
-    <loc>http://ze520.cn/categories/hexo/</loc>
+    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -293,6 +300,13 @@
   </url>
   
   <url>
+    <loc>http://ze520.cn/categories/hexo/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2021-09-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ze520.cn/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%88AI%EF%BC%89/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
@@ -300,7 +314,7 @@
   </url>
   
   <url>
-    <loc>http://ze520.cn/categories/hexo/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/hexo/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -321,21 +335,7 @@
   </url>
   
   <url>
-    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://ze520.cn/categories/%E5%89%8D%E7%AB%AF%E7%AF%87/</loc>
-    <lastmod>2021-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/hexo/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
