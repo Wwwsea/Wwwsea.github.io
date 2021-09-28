@@ -30,6 +30,10 @@
         backdrop-filter: saturate(100%) blur(5px)
     }
     
+    #article-container img{
+        margin: 0;
+    }
+
     #footer::before {
         background: rgba(255,255,255,.15)
     }

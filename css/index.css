@@ -2441,9 +2441,6 @@ blockquote footer cite:before {
 .layout.hide-aside > div {
   width: 100% !important;
 }
-#article-container img {
-  margin: 0 auto !important;
-}
 .flink-list {
   overflow: auto;
 }
