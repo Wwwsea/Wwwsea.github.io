@@ -9,16 +9,16 @@
   </url>
   
   <url>
-    <loc>http://ze520.cn/posts/520.html</loc>
+    <loc>http://ze520.cn/List/gallery/index.html</loc>
     
-    <lastmod>2021-10-05</lastmod>
+    <lastmod>2021-10-13</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ze520.cn/List/gallery/index.html</loc>
+    <loc>http://ze520.cn/posts/520.html</loc>
     
-    <lastmod>2021-09-28</lastmod>
+    <lastmod>2021-10-05</lastmod>
     
   </url>
   
@@ -214,14 +214,14 @@
   </url>
   
   <url>
-    <loc>http://ze520.cn/tags/hexo/</loc>
+    <loc>http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ze520.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://ze520.cn/tags/hexo/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -286,6 +286,13 @@
   </url>
   
   <url>
+    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ze520.cn/categories/hexo/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
@@ -307,6 +314,13 @@
   </url>
   
   <url>
+    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/hexo/</loc>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ze520.cn/categories/hexo/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
@@ -322,20 +336,6 @@
   
   <url>
     <loc>http://ze520.cn/categories/hexo/%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</loc>
-    <lastmod>2021-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://ze520.cn/categories/%E5%8D%9A%E5%AE%A2/hexo/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
