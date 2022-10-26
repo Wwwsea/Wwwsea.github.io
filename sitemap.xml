@@ -109,14 +109,14 @@
 
   
   <url>
-    <loc>http://example.com/tags/mysql%E5%9F%BA%E7%A1%80/</loc>
+    <loc>http://example.com/tags/%E9%97%B2%E8%B0%88/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E9%97%B2%E8%B0%88/</loc>
+    <loc>http://example.com/tags/mysql%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -125,14 +125,14 @@
 
   
   <url>
-    <loc>http://example.com/categories/mysql/</loc>
+    <loc>http://example.com/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>http://example.com/categories/mysql/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
