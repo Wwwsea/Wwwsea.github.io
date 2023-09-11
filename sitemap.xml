@@ -333,13 +333,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E9%97%B2%E8%B0%88/</loc>
-    <lastmod>2023-09-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/%E4%BA%8B%E5%8A%A1/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
@@ -348,6 +341,13 @@
   
   <url>
     <loc>http://example.com/tags/flutter/</loc>
+    <lastmod>2023-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/%E9%97%B2%E8%B0%88/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -389,6 +389,13 @@
   </url>
   
   <url>
+    <loc>http://example.com/tags/JVM-java/</loc>
+    <lastmod>2023-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
@@ -396,14 +403,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/spring-springboot/</loc>
-    <lastmod>2023-09-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/JVM-java/</loc>
+    <loc>http://example.com/tags/Mybatis/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -417,14 +417,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/redis/</loc>
+    <loc>http://example.com/tags/spring-springboot/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Mybatis/</loc>
+    <loc>http://example.com/tags/redis/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -510,6 +510,13 @@
   </url>
   
   <url>
+    <loc>http://example.com/categories/JVM-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <lastmod>2023-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
@@ -517,7 +524,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/JVM-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <loc>http://example.com/categories/Mybatis/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -532,13 +539,6 @@
   
   <url>
     <loc>http://example.com/categories/redis/</loc>
-    <lastmod>2023-09-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/Mybatis/</loc>
     <lastmod>2023-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
