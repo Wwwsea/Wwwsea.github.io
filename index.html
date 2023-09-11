@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fish - Fishの博客</title><meta name="keywords" content="Fish 计算机 软件工程 mysql"><meta name="author" content="Fish"><meta name="copyright" content="Fish"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="书中自有黄金屋">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fish">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="书中自有黄金屋">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2022/10/25/xRhB6S.png">
+<meta property="article:author" content="Fish">
+<meta property="article:tag" content="Fish 计算机 软件工程 mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/10/25/xRhB6S.png"><link rel="shortcut icon" href="https://s1.ax1x.com/2022/10/25/xRhB6S.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"一年之内的产物","messageNext":"技术可能存在过期"},
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Fish","link":"链接: ","source":"来源: Fish","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Fish',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-09-11 18:35:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link defer rel="stylesheet" href="/css/customm.css" ><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/icon.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/background.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/index_ee.css"><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Fish" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://s1.ax1x.com/2023/07/13/pChIVRe.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fish</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Fish</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/Wwwsea/Wwwsea.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2667657399&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/32.html" title="MySQL基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn70U.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MySQL基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/32.html" title="MySQL基础">MySQL基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:59:03.000Z" title="发表于 2023-09-11 14:59:03">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MySQL/">MySQL</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/32.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/32.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+1.什么是BufferPool？Buffer Pool基本概念
+Buffer Pool：缓冲池，简称BP。其作用是用来缓存表数据与索引数据，减少磁盘IO操作，提升效率。
+Buffer Pool由缓存数据页(Page) 和 对缓存数据页进行描述的控制块 组成, 控制块中存储着对应缓存页的所属的    表空间、数据页的编号、以及对应缓存页在Buffer Pool中的地址等信息.
+Buffer Pool默认大小是128M, 以Page页为单位，Page页默认大小16K，而控制块的大小约为数据页的5%，大    概是800字节。
+
+
+注: Buffer Pool大小为128M指的就是缓存页的大小，控制块则一般占5%，所以每次会多申请6M的内存空间用于存放控制块
+
+如何判断一个页是否在BufferPool中缓存 ?
+MySQl中有一个哈希表数据结构，它使用表空间号+数据页号，作为一个key，然后缓冲页对应的控制块作为value。
+
+
+当需要访问某个页的数据时，先从哈希表中根据表空间号+页号看看是否存在对应的缓冲页。
+如果有，则直接使用；如果没 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/31.html" title="redis基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="redis基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/31.html" title="redis基础">redis基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:58:37.000Z" title="发表于 2023-09-11 14:58:37">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/31.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/31.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+Redis为什么快？
+纯内存KV操作
+
+Redis的操作都是基于内存的，CPU不是 Redis性能瓶颈,，Redis的瓶颈是机器内存和网络带宽。
+在计算机的世界中，CPU的速度是远大于内存的速度的，同时内存的速度也是远大于硬盘的速度。redis的操作都是基于内存的，绝大部分请求是纯粹的内存操作，非常迅速。
+
+单线程操作
+
+使用单线程可以省去多线程时CPU上下文会切换的时间，也不用去考虑各种锁的问题，不存在加锁释放锁操作，没有死锁问题导致的性能消耗。对于内存系统来说，多次读写都是在一个CPU上，没有上下文切换效率就是最高的！既然单线程容易实现，而且 CPU 不会成为瓶颈，那就顺理成章的采用单线程的方案了
+Redis 单线程指的是网络请求模块使用了一个线程，即一个线程处理所有网络请求，其他模块该使用多线程，仍会使用了多个线程。
+
+I/O 多路复用
+
+为什么 Redis 中要使用 I/O 多路复用这种技术呢？
+首先，Redis 是跑在单线程中的，所有的操作都是按照顺序线性执行的，但是由于读写操作等待用户输入或输出都是阻塞的，所以 I/O  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/29.html" title="MQ消息队列">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MQ消息队列"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/29.html" title="MQ消息队列">MQ消息队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:58:13.000Z" title="发表于 2023-09-11 14:58:13">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/29.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/29.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+1、为什么使用消息队列？其实就是问问你消息队列都有哪些使用场景，然后你项目里具体是什么场景，说说你在这个场景里用消息队列是什么？
+期望的一个回答是说，你们公司有个什么业务场景，这个业务场景有个什么技术挑战，如果不用MQ可能会很麻烦，但是你现在用了MQ之后带给了你很多的好处。消息队列的常见使用场景，其实场景有很多，但是比较核心的有3个：解耦、异步、削峰。
+解耦：
+A系统发送个数据到BCD三个系统，接口调用发送，那如果E系统也要这个数据呢？那如果C系统现在不需要了呢？现在A系统又要发送第二种数据了呢？而且A系统要时时刻刻考虑BCDE四个系统如果挂了咋办？要不要重发？我要不要把消息存起来？
+你需要去考虑一下你负责的系统中是否有类似的场景，就是一个系统或者一个模块，调用了多个系统或者模块，互相之间的调用很复杂，维护起来很麻烦。但是其实这个调用是不需要直接同步调用接口的，如果用MQ给他异步化解耦，也是可以的，你就需要去考虑在你的项目里，是不是可以运用这个MQ去进行系统的解耦。
+异步：
+A系统接收一个请求，需要在自己本地写库，还需要在BCD三个 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/28.html" title="Spring基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="Spring基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/28.html" title="Spring基础">Spring基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:57:18.000Z" title="发表于 2023-09-11 14:57:18">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/spring%E6%A1%86%E6%9E%B6/">spring框架</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/28.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/28.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+讲师：邓澎波
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+Spring面试专题1.Spring应该很熟悉吧？来介绍下你的Spring的理解1.1 Spring的发展历程  先介绍Spring是怎么来的，发展中有哪些核心的节点，当前的最新版本是什么等
+
+ 通过上图可以比较清晰的看到Spring的各个时间版本对应的时间节点了。也就是Spring从之前单纯的xml的配置方式，到现在的完全基于注解的编程方式发展。
+1.2 Spring的组成  Spring是一个轻量级的IoC和AOP容器框架。是为Java应用程序提供基础性服务的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于Java的配置.
+主要由以下几个模块组成：
+
+Spring Core：核心类库，提供IOC服务；
+Spring Context：提供框架式的Bean访问方式，以及企业级功能（JNDI、定时任务等）；
+Spring AOP：AOP服务；
+Spring DAO：对JDBC的抽象，简化了数据访问异常的处理；
+Spring ORM：对 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/27.html" title="SpringCloud基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="SpringCloud基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/27.html" title="SpringCloud基础">SpringCloud基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:56:58.000Z" title="发表于 2023-09-11 14:56:58">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/spring/">spring</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/27.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/27.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">未完待续。。。</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/26.html" title="SpringBoot基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="SpringBoot基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/26.html" title="SpringBoot基础">SpringBoot基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:56:45.000Z" title="发表于 2023-09-11 14:56:45">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/spring/">spring</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/26.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/26.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+什么是SpringBoot？Spring Boot 是由 Pivotal 团队提供的基于 Spring 的全新框架，旨在简化 Spring 应用的初始搭建和开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。 约定大于（优于）配置
+SpringBoot的run方法做了什么事？run方法其实就是做了一个IOC初始化的操作
+@ComponentScan注解是干什么的？被@ComponentScan修饰的java类，如果没有指定具体的扫描路径。实际上他默认的扫描路径是当前JAVA类所在的路径及其子路径，都是被扫描的范围。
+@EnableAutoConfiguration注解是干什么的？@EnableAutoConfiguration        开启自动配置        开启自动装配
+
+Import注解的三种使用用法1.静态注入的方式
+2.实现了我们的ImportSelector接口，并且实现了selectImports方法，那么我们的返回值就是selectImports的方法的返回类型。
+3.实现了I ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/30.html" title="Mybatis基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgGPfS.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="Mybatis基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/30.html" title="Mybatis基础">Mybatis基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:56:25.000Z" title="发表于 2023-09-11 14:56:25">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Mybatis/">Mybatis</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/30.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/30.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+一、介绍下MyBatis中的工作原理1。介绍MyBatis的基本情况：ORM
+2。原理：
+
+MyBatis框架的初始化操作
+处理SQL请求的流程
+
+1.系统启动的时候会加载解析全局配置文件和对应映射文件。加载解析的相关信息存储在 Configuration 对象
+@Test
+    public void test1() throws  Exception{
+        // 1.获取配置文件
+        InputStream in = Resources.getResourceAsStream("mybatis-config.xml");
+        // 2.加载解析配置文件并获取SqlSessionFactory对象
+        // SqlSessionFactory 的实例我们没有通过 DefaultSqlSessionFactory直接来获取
+        // 而是通过一个Builder对象来建造的
+        // SqlSessionFactory 生产 SqlSession 对象的  Sq ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/25.html" title="设计模式">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="设计模式"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/25.html" title="设计模式">设计模式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:55:47.000Z" title="发表于 2023-09-11 14:55:47">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/25.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/25.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+1.说一下开发中需要遵守的设计原则？设计模式中主要有六大设计原则，简称为SOLID ，是由于各个原则的首字母简称合并的来(两个L算一个,solid 稳定的)，六大设计原则分别如下：
+1、单一职责原则
+单一职责原则的定义描述非常简单，也不难理解。一个类只负责完成一个职责或者功能。也就是说在类的设计中 我们不要设计大而全的类,而是要设计粒度小、功能单一的类。
+
+比如 我们设计一个类里面既包含了用户的一些操作,又包含了支付的一些操作,那这个类的职责就不够单一,应该将该类进行拆分,拆分成多个功能更加单一的,粒度更细的类.
+
+2、开放封闭原则
+定义：对扩展开放，对修改关闭
+对扩展开放和对修改关闭表示当一个类或一个方法有新需求或者需求发生改变时应该采用扩展的方式而不应该采用修改原有逻辑的方式来实现。因为扩展了新的逻辑如果有问题只会影响新的业务，不会影响老业务；而如果采用修改的方式，很有可能就会影响到老业务受影响。
+优点：
+
+新老逻辑解耦，需求发生改变不会影响老业务的逻辑
+改动成本最小，只需要追加新逻辑，不需要改的老逻辑
+提供代码的稳定性和可扩展 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/24.html" title="JVM严镇涛版">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="JVM严镇涛版"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/24.html" title="JVM严镇涛版">JVM严镇涛版</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:55:18.000Z" title="发表于 2023-09-11 14:55:18">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JVM-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">JVM(Java虚拟机)</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/24.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/24.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+枫叶云链接：http://cloud.fynote.com/s/4976
+JVM面试题大全                Lecturer ：严镇涛1.为什么需要JVM，不要JVM可以吗？1.JVM可以帮助我们屏蔽底层的操作系统      一次编译，到处运行
+2.JVM可以运行Class文件
+
+2.JDK，JRE以及JVM的关系
+3.我们的编译器到底干了什么事？仅仅是将我们的 .java 文件转换成了 .class 文件，实际上就是文件格式的转换，对等信息转换。
+
+4.类加载机制
+类加载机制其实就是虚拟机把Class文件加载到内存，并对数据进行校验，转换解析和初始化，形成可以虚拟机直接使用的Java类型，即java.lang.Class。
+1.装载
+Class文件  – &gt;二进制字节流 –&gt;类加载器
+1）通过一个类的全限定名获取这个类的二进制字节流
+2）将这个字节流所代表的静态存储结构转换为方法区的运行时数据结构
+3）在java堆中生成一个代表这个类的java.lang.Class对象，做为我们方法区的数据访问入口
+2. ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/23.html" title="分布式基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="分布式基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/23.html" title="分布式基础">分布式基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T06:54:30.000Z" title="发表于 2023-09-11 14:54:30">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/23.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/23.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除) 
+
+分布式幂等性如何设计？在高并发场景的架构里，幂等性是必须得保证的。比如说支付功能，用户发起支付，如果后台没有
+做幂等校验，刚好用户手抖多点了几下，于是后台就可能多次受到同一个订单请求，不做幂等很容
+易就让用户重复支付了，这样用户是肯定不能忍的。
+解决方案：。
+1，查询和删除不在幂等讨论范围，查询肯定没有幂等的说，删除：第一次删除成功后，后面来删
+除直接返回0，也是返回成功。
+2，建唯一索引：唯一索引或唯一组合索引来防止新增数据存在脏数据 （当表存在唯一索引，并发
+时新增异常时，再查询一次就可以了，数据应该已经存在了，返回结果即可）。
+3，token机制：由于重复点击或者网络重发，或者nginx重发等情况会导致数据被重复提交。前端
+在数据提交前要向后端服务的申请token，token放到 Redis 或 JVM 内存，token有效时间。提交后
+后台校验token，同时删除token，生成新的token返回。redis要用删除操作来判断token，删除成
+功代表token校验通过，如果用select+delete来校验token，存在 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/22.html" title="并发编程(03)">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgezCR.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="并发编程(03)"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/22.html" title="并发编程(03)">并发编程(03)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T01:16:30.000Z" title="发表于 2023-09-11 09:16:30">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/22.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/22.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+(上传仅供个人学习交流使用 如有侵权立刻删除)
+
+JUC并发工具一、CountDownLatch应用&amp;源码分析1.1 CountDownLatch介绍CountDownLatch就是JUC包下的一个工具，整个工具最核心的功能就是计数器。
+如果有三个业务需要并行处理，并且需要知道三个业务全部都处理完毕了。
+需要一个并发安全的计数器来操作。
+CountDownLatch就可以实现。
+给CountDownLatch设置一个数值。可以设置3。
+每个业务处理完毕之后，执行一次countDown方法，指定的3每次在执行countDown方法时，对3进行-1。
+主线程可以在业务处理时，执行await，主线程会阻塞等待任务处理完毕。
+当设置的3基于countDown方法减为0之后，主线程就会被唤醒，继续处理后续业务。
+
+当咱们的业务中，出现2个以上允许并行处理的任务，并且需要在任务都处理完毕后，再做其他处理时，可以采用CountDownLatch去实现这个功能。
+1.2 CountDownLatch应用模拟有三个任务需要并行处理，在三个任务全部处理完毕后，再执行后续操作
+CountDownL ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/21.html" title="并发编程(02)">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgezCR.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="并发编程(02)"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/21.html" title="并发编程(02)">并发编程(02)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-11T01:16:21.000Z" title="发表于 2023-09-11 09:16:21">2023-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/posts/21.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/21.html" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">线程池
+(上传仅供个人学习交流使用 如有侵权立刻删除)
+
+一、什么是线程池为什么要使用线程池
+在开发中，为了提升效率的操作，我们需要将一些业务采用多线程的方式去执行。
+比如有一个比较大的任务，可以将任务分成几块，分别交给几个线程去执行，最终做一个汇总就可以了。
+比如做业务操作时，需要发送短信或者是发送邮件，这种操作也可以基于异步的方式完成，这种异步的方式，其实就是再构建一个线程去执行。
+但是，如果每次异步操作或者多线程操作都需要新创建一个线程，使用完毕后，线程再被销毁，这样的话，对系统造成一些额外的开销。在处理过程中到底由多线程处理了多少个任务，以及每个线程的开销无法统计和管理。
+所以咱们需要一个线程池机制来管理这些内容。线程池的概念和连接池类似，都是在一个Java的集合中存储大量的线程对象，每次需要执行异步操作或者多线程操作时，不需要重新创建线程，直接从集合中拿到线程对象直接执行方法就可以了。
+JDK中就提供了线程池的类。
+在线程池构建初期，可以将任务提交到线程池中。会根据一定的机制来异步执行这个任务。
+
+可能任务直接被执行
+任务可以暂时被存储起来了。等到有空闲线程再来处理。
+任务也 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="author-info__name">Fish</div><div class="author-info__description">书中自有黄金屋</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Wwwsea/Wwwsea.github.io"><i class="fab fa-home"></i><span>个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wwwsea/Wwwsea.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2667657399&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我们顶峰相见吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/32.html" title="MySQL基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn70U.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MySQL基础"/></a><div class="content"><a class="title" href="/posts/32.html" title="MySQL基础">MySQL基础</a><time datetime="2023-09-11T06:59:03.000Z" title="发表于 2023-09-11 14:59:03">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/31.html" title="redis基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="redis基础"/></a><div class="content"><a class="title" href="/posts/31.html" title="redis基础">redis基础</a><time datetime="2023-09-11T06:58:37.000Z" title="发表于 2023-09-11 14:58:37">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/29.html" title="MQ消息队列"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MQ消息队列"/></a><div class="content"><a class="title" href="/posts/29.html" title="MQ消息队列">MQ消息队列</a><time datetime="2023-09-11T06:58:13.000Z" title="发表于 2023-09-11 14:58:13">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/28.html" title="Spring基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="Spring基础"/></a><div class="content"><a class="title" href="/posts/28.html" title="Spring基础">Spring基础</a><time datetime="2023-09-11T06:57:18.000Z" title="发表于 2023-09-11 14:57:18">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/27.html" title="SpringCloud基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="SpringCloud基础"/></a><div class="content"><a class="title" href="/posts/27.html" title="SpringCloud基础">SpringCloud基础</a><time datetime="2023-09-11T06:56:58.000Z" title="发表于 2023-09-11 14:56:58">2023-09-11</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JVM-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"><span class="card-category-list-name">JVM(Java虚拟机)</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Mybatis/"><span class="card-category-list-name">Mybatis</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/javaEE%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">javaEE笔记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/redis/"><span class="card-category-list-name">redis</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/spring/"><span class="card-category-list-name">spring</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/spring%E6%A1%86%E6%9E%B6/"><span class="card-category-list-name">spring框架</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/JVM-java/" style="font-size: 1.1em; color: #999">JVM java</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 1.1em; color: #999">Mybatis</a> <a href="/tags/flutter/" style="font-size: 1.37em; color: #99a4b2">flutter</a> <a href="/tags/java-%E5%B9%B6%E5%8F%91/" style="font-size: 1.23em; color: #999ea6">java 并发</a> <a href="/tags/javaEE%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">javaEE笔记</a> <a href="/tags/redis/" style="font-size: 1.1em; color: #999">redis</a> <a href="/tags/spring/" style="font-size: 1.1em; color: #999">spring</a> <a href="/tags/spring-springboot/" style="font-size: 1.1em; color: #999">spring springboot</a> <a href="/tags/springCloud/" style="font-size: 1.1em; color: #999">springCloud</a> <a href="/tags/%E4%BA%8B%E5%8A%A1/" style="font-size: 1.1em; color: #999">事务</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.1em; color: #999">分布式</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 1.1em; color: #999">消息队列</a> <a href="/tags/%E7%AE%97%E6%B3%95-java/" style="font-size: 1.5em; color: #99a9bf">算法 java</a> <a href="/tags/%E7%AE%97%E6%B3%95and%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">算法and数据结构</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E9%98%85%E8%AF%BB-ted/" style="font-size: 1.1em; color: #999">英语阅读 ted</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">设计模式</a> <a href="/tags/%E8%AF%BE%E5%A4%96%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">课外阅读</a> <a href="/tags/%E9%94%81/" style="font-size: 1.1em; color: #999">锁</a> <a href="/tags/%E9%97%B2%E8%B0%88/" style="font-size: 1.1em; color: #999">闲谈</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">09 2023</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">08 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">07 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">05 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">03 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">11 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">10 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">32</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-10-23T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-09-11T10:35:17.191Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Fish</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: 'dX752Hc7LGu8hhVSwuAwW6FF-MdYXbMMI',
+        appKey: 'vtigGSfIIobVHPC4x3FdrYao',
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script defer id="dsq-count-scr" src="//xianqi.disqus.com/count.js" async></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/js/animate.js"></script><div class="aplayer no-destroy" data-id="4091867406" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="auto" data-autoplay="false" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="//code.tidio.co/prhgttkzeqwkdqfrh5cvonenwrvvz0gi.js" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

@@ -1,0 +1,817 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JVM严镇涛版 | Fish</title><meta name="keywords" content="JVM java"><meta name="author" content="Fish"><meta name="copyright" content="Fish"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="(上传仅供个人学习交流使用 如有侵权立刻删除)   枫叶云链接：http:&#x2F;&#x2F;cloud.fynote.com&#x2F;s&#x2F;4976 JVM面试题大全                Lecturer ：严镇涛1.为什么需要JVM，不要JVM可以吗？1.JVM可以帮助我们屏蔽底层的操作系统      一次编译，到处运行 2.JVM可以运行Class文件  2.JDK，JRE以及JVM的关系 3.我们的编译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM严镇涛版">
+<meta property="og:url" content="http://example.com/posts/24.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="(上传仅供个人学习交流使用 如有侵权立刻删除)   枫叶云链接：http:&#x2F;&#x2F;cloud.fynote.com&#x2F;s&#x2F;4976 JVM面试题大全                Lecturer ：严镇涛1.为什么需要JVM，不要JVM可以吗？1.JVM可以帮助我们屏蔽底层的操作系统      一次编译，到处运行 2.JVM可以运行Class文件  2.JDK，JRE以及JVM的关系 3.我们的编译">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg">
+<meta property="article:published_time" content="2023-09-11T06:55:18.000Z">
+<meta property="article:modified_time" content="2023-09-11T08:26:18.474Z">
+<meta property="article:author" content="Fish">
+<meta property="article:tag" content="JVM java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2022/10/25/xRhB6S.png"><link rel="canonical" href="http://example.com/posts/24"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"一年之内的产物","messageNext":"技术可能存在过期"},
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Fish","link":"链接: ","source":"来源: Fish","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JVM严镇涛版',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-11 16:26:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link defer rel="stylesheet" href="/css/customm.css" ><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/icon.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/background.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/index_ee.css"><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Fish" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fish</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JVM严镇涛版</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-11T06:55:18.000Z" title="发表于 2023-09-11 14:55:18">2023-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-11T08:26:18.474Z" title="更新于 2023-09-11 16:26:18">2023-09-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JVM-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">JVM(Java虚拟机)</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JVM严镇涛版"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>(上传仅供个人学习交流使用 如有侵权立刻删除) </p>
+</blockquote>
+<p>枫叶云链接：<a target="_blank" rel="noopener" href="http://cloud.fynote.com/s/4976">http://cloud.fynote.com/s/4976</a></p>
+<h1 id="JVM面试题大全-Lecturer-：严镇涛"><a href="#JVM面试题大全-Lecturer-：严镇涛" class="headerlink" title="JVM面试题大全                Lecturer ：严镇涛"></a>JVM面试题大全                Lecturer ：严镇涛</h1><h2 id="1-为什么需要JVM，不要JVM可以吗？"><a href="#1-为什么需要JVM，不要JVM可以吗？" class="headerlink" title="1.为什么需要JVM，不要JVM可以吗？"></a>1.为什么需要JVM，不要JVM可以吗？</h2><p>1.JVM可以帮助我们屏蔽底层的操作系统      一次编译，到处运行</p>
+<p>2.JVM可以运行Class文件</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/a2b57e0612a0461dbd4ad1dfb42a6eca.png" alt="image.png"></p>
+<h2 id="2-JDK，JRE以及JVM的关系"><a href="#2-JDK，JRE以及JVM的关系" class="headerlink" title="2.JDK，JRE以及JVM的关系"></a>2.JDK，JRE以及JVM的关系</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/ca7dac4d13c14d1191e3d860a1338d4d.png" alt="03.png"></p>
+<h2 id="3-我们的编译器到底干了什么事？"><a href="#3-我们的编译器到底干了什么事？" class="headerlink" title="3.我们的编译器到底干了什么事？"></a>3.我们的编译器到底干了什么事？</h2><p>仅仅是将我们的 .java 文件转换成了 .class 文件，实际上就是文件格式的转换，对等信息转换。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/bac9fb59888f45d0b5531cbc21ffecf9.png" alt="image.png"></p>
+<h2 id="4-类加载机制"><a href="#4-类加载机制" class="headerlink" title="4.类加载机制"></a>4.类加载机制</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1644577518000/b5ec599f1b8242a19cb6995a97cb02cf.png" alt="image.png"></p>
+<p>类加载机制其实就是虚拟机把Class文件加载到内存，并对数据进行校验，转换解析和初始化，形成可以虚拟机直接使用的Java类型，即java.lang.Class。</p>
+<p>1.装载</p>
+<p>Class文件  – &gt;二进制字节流 –&gt;类加载器</p>
+<p>1）通过一个类的全限定名获取这个类的二进制字节流</p>
+<p>2）将这个字节流所代表的静态存储结构转换为方法区的运行时数据结构</p>
+<p>3）在java堆中生成一个代表这个类的java.lang.Class对象，做为我们方法区的数据访问入口</p>
+<p>2.链接：</p>
+<p>1）验证：保证我们加载的类的正确性</p>
+<ul>
+<li>文件格式验证</li>
+<li>元数据验证</li>
+<li>字节码验证</li>
+<li>符号引用验证</li>
+</ul>
+<p>2）准备</p>
+<p>为类的静态变量分配内存，并将其初始化为当前类型的默认值。</p>
+<p>private   static  int  a   = 1 ；    那么他在准备这个阶段  a = 0；</p>
+<p>3）解析</p>
+<p><em>解析</em>是从运行时常量池中的符号引用动态确定具体值的过程。</p>
+<p>把类中的符号引用转换成直接引用</p>
+<p>3.初始化</p>
+<p>执行到Clinit方法，为静态变量赋值，初始化静态代码块，初始化当前类的父类</p>
+<h2 id="5-类加载器的层次"><a href="#5-类加载器的层次" class="headerlink" title="5.类加载器的层次"></a>5.类加载器的层次</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/5c442004ab9641c78585c238d88f57ea.png" alt="image.png"></p>
+<h2 id="6-双亲委派机制"><a href="#6-双亲委派机制" class="headerlink" title="6.双亲委派机制"></a>6.双亲委派机制</h2><p>父类委托机制</p>
+<p>源码       String              自己写  String</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> <span class="token function">loadClass</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">boolean</span> resolve<span class="token punctuation">)</span>
+        <span class="token keyword">throws</span> <span class="token class-name">ClassNotFoundException</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token function">getClassLoadingLock</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// First, check if the class has already been loaded</span>
+            <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> c <span class="token operator">=</span> <span class="token function">findLoadedClass</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">long</span> t0 <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>parent <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        c <span class="token operator">=</span> parent<span class="token punctuation">.</span><span class="token function">loadClass</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        c <span class="token operator">=</span> <span class="token function">findBootstrapClassOrNull</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ClassNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// ClassNotFoundException thrown if class not found</span>
+                    <span class="token comment">// from the non-null parent class loader</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// If still not found, then invoke findClass in order</span>
+                    <span class="token comment">// to find the class.</span>
+                    <span class="token keyword">long</span> t1 <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    c <span class="token operator">=</span> <span class="token function">findClass</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token comment">// this is the defining class loader; record the stats</span>
+                    sun<span class="token punctuation">.</span>misc<span class="token punctuation">.</span><span class="token class-name">PerfCounter</span><span class="token punctuation">.</span><span class="token function">getParentDelegationTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addTime</span><span class="token punctuation">(</span>t1 <span class="token operator">-</span> t0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    sun<span class="token punctuation">.</span>misc<span class="token punctuation">.</span><span class="token class-name">PerfCounter</span><span class="token punctuation">.</span><span class="token function">getFindClassTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addElapsedTimeFrom</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    sun<span class="token punctuation">.</span>misc<span class="token punctuation">.</span><span class="token class-name">PerfCounter</span><span class="token punctuation">.</span><span class="token function">getFindClasses</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">resolveClass</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/000d19eeb6c64783875c14592668f223.png" alt="image.png"></p>
+<h2 id="7-如何打破双亲委派"><a href="#7-如何打破双亲委派" class="headerlink" title="7.如何打破双亲委派"></a>7.如何打破双亲委派</h2><p>1.复写</p>
+<p>2.SPI   Service   Provider   Interface   服务提供接口    日志     Xml解析   JBDC</p>
+<p>可拔插设计    可以随时替换实现</p>
+<p>3.OSGI   热部署   热更新<br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1463/1/8acf0c26ba9146d89a17919f54f7925a.png" alt="16461374670483013008ffy"></p>
+<h2 id="8-运行时数据区"><a href="#8-运行时数据区" class="headerlink" title="8.运行时数据区"></a>8.运行时数据区</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1644577518000/0b5a1e867e3240e6ba1809b074d54f01.png" alt="20.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1463/1/6b3f162e4dbc46629ad360e8bb0f6994.png" alt="16461374670483019699ffy">1.方法区   线程共享 方法区是逻辑上堆的一部分 所以他有个名字：非堆</p>
+<p>运行时常量池、字段和方法数据，以及方法和构造函数的代码，包括类和实例初始化和接口初始化中使用 的特殊方法</p>
+<p>如果方法区域中的内存无法满足分配请求，Java 虚拟机将抛出一个 <code>OutOfMemoryError</code></p>
+<p>2.堆   线程共享   堆是为所有类实例和数组分配内存的运行时数据区域     内存不足 <code>OutOfMemoryError</code></p>
+<p>3.java虚拟机栈   执行java方法的        线程私有的      <code>StackOverflowError</code></p>
+<p>4.本地方法栈   执行本地方法      线程私有      <code>StackOverflowError</code></p>
+<p>5.程序计数器    记录程序执行到的位置    线程私有</p>
+<h2 id="9-栈帧结构是什么样子的？"><a href="#9-栈帧结构是什么样子的？" class="headerlink" title="9.栈帧结构是什么样子的？"></a>9.栈帧结构是什么样子的？</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1644577518000/9b75f075b66d48feba43ca971685731b.png" alt="15.png"></p>
+<p>附加信息：栈帧的高度，虚拟机版本信息</p>
+<p>栈帧信息：附加信息+动态链接+方法的返回地址</p>
+<p>局部变量表：方法中定义的局部变量以及方法的参数都会存放在这张表中  ，单纯的存储单元</p>
+<p>操作数栈  以压栈以及出栈的方式存储操作数</p>
+<p>举例：</p>
+<p>int   a   =  1；</p>
+<p>int   b   =  1；</p>
+<p>int c = a + b ；</p>
+<p>方法的返回地址：当你一个方法执行的时候，只有两种方式可以推出</p>
+<p>1.遇到方法的返回的字节码指令</p>
+<p>2.出现了异常，有异常处理器，则交给异常处理器  ，没有呢？抛异常</p>
+<h2 id="10-动态链接"><a href="#10-动态链接" class="headerlink" title="10.动态链接"></a>10.动态链接</h2><p>动态链接是为了支持方法的动态调用过程 。</p>
+<p>动态链接将这些符号方法引用转换为具体的方法引用</p>
+<p>符号引用转变为直接引用      为了支持java的多态</p>
+<p>void    a(){</p>
+<p>b();</p>
+<p>}</p>
+<p>void    b(){</p>
+<p>c();</p>
+<p>}</p>
+<p>void    c(){</p>
+<p>}</p>
+<h2 id="11-java堆为什么要进行分代设计"><a href="#11-java堆为什么要进行分代设计" class="headerlink" title="11.java堆为什么要进行分代设计"></a>11.java堆为什么要进行分代设计</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file:///C:\Users\root\AppData\Local\Temp\ksohtml\wpsE144.tmp.jpg"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/f9280f0ed7fb4dadb453c3004f4b2192.png" alt="22.png"></p>
+<p>新老年代划分</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1463/1/91ccfbe811954b4eab7664b6792eaa51.png" alt="16461374670483019381ffy"></p>
+<p>Eden区与S区</p>
+<h2 id="12-老年代的担保机制"><a href="#12-老年代的担保机制" class="headerlink" title="12.老年代的担保机制"></a>12.<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file:///C:\Users\root\AppData\Local\Temp\ksohtml\wps7F2D.tmp.jpg">老年代的担保机制</h2><h2 id="13-为什么Eden：S0：S1-是8：1：1"><a href="#13-为什么Eden：S0：S1-是8：1：1" class="headerlink" title="13.为什么Eden：S0：S1 是8：1：1"></a>13.为什么Eden：S0：S1 是8：1：1<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file:///C:\Users\root\AppData\Local\Temp\ksohtml\wps942D.tmp.jpg"></h2><p>98%的对象朝生夕死</p>
+<h2 id="14-对象的创建过程"><a href="#14-对象的创建过程" class="headerlink" title="14.对象的创建过程"></a>14.对象的创建过程</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1644577518000/0df155de2e8f429683e3faade45766e3.png" alt="23.png"></p>
+<h2 id="15-方法区与元数据区以及持久代到底是什么关系"><a href="#15-方法区与元数据区以及持久代到底是什么关系" class="headerlink" title="15.方法区与元数据区以及持久代到底是什么关系"></a>15.方法区与元数据区以及持久代到底是什么关系</h2><p>方法区    JVM规范</p>
+<p>落地：JDK1.7之前   持久代     Perm Space   JVM虚拟机自己的内存</p>
+<p>JDK1.8之后      元数据区 / 元空间     MetaSpace    直接内存</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1463/1/d139d4d5c2764ad3ac6299a6a231ce40.png" alt="16461374670483013249ffy"></p>
+<h2 id="16-什么时候才会进行垃圾回收"><a href="#16-什么时候才会进行垃圾回收" class="headerlink" title="16.什么时候才会进行垃圾回收"></a>16.什么时候才会进行垃圾回收</h2><blockquote>
+<p>GC是由JVM自动完成的，根据JVM系统环境而定，所以时机是不确定的。<br>当然，我们可以手动进行垃圾回收，比如调用System.gc()方法通知JVM进行一次垃圾回收，但是<br>具体什么时刻运行也无法控制。也就是说System.gc()只是通知要回收，什么时候回收由JVM决<br>定。<strong>但是不建议手动调用该方法，因为GC消耗的资源比较大</strong>。</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">（1）当Eden区或者S区不够用了
+（2）老年代空间不够用了
+（3）方法区空间不够用了
+（4）System.gc()     //通知      时机也不确定      执行的Full  GC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="17-如何确定一个对象是垃圾？"><a href="#17-如何确定一个对象是垃圾？" class="headerlink" title="17. 如何确定一个对象是垃圾？"></a>17. 如何确定一个对象是垃圾？</h3><blockquote>
+<p><strong>要想进行垃圾回收，得先知道什么样的对象是垃圾。</strong></p>
+</blockquote>
+<ul>
+<li>引用计数法</li>
+</ul>
+<p><strong>对于某个对象而言，只要应用程序中持有该对象的引用，就说明该对象不是垃圾，如果一个对象没有任何指针对其引用，它就是垃圾。</strong></p>
+<p><code>弊端</code>:如果AB相互持有引用，导致永远不能被回收。 循环引用    内存泄露   –&gt;内存溢出</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1463/1/206642b525724b559a09fa193940a322.png" alt="16461374670483019208ffy"></p>
+<ul>
+<li>可达性分析/根搜索算法</li>
+</ul>
+<p><strong>通过GC Root的对象，开始向下寻找，看某个对象是否可达</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:/%E6%A1%8C%E9%9D%A2/yzt/%E7%AC%94%E8%AE%B0%E8%AF%BE%E4%BB%B6/JVM/3%E5%A4%A9JVM%E8%AE%AD%E7%BB%83%E8%90%A5/%E8%B5%84%E6%96%99+%E7%AC%94%E8%AE%B0/images/64.png?lastModify=1646659177"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/fe725834fb304a55a1bbae9aa70b7739.png" alt="image.png"></p>
+<blockquote>
+<p><strong>能作为GC Root:类加载器、Thread、虚拟机栈的本地变量表、static成员、常量引用、本地方法栈的变量等。</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">虚拟机栈（栈帧中的本地变量表）中引用的对象。
+方法区中类静态属性引用的对象。
+方法区中常量引用的对象。
+本地方法栈中JNI（即一般说的Native方法）引用的对象。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="18-对象被判定为不可达对象之后就“死”了吗"><a href="#18-对象被判定为不可达对象之后就“死”了吗" class="headerlink" title="18.对象被判定为不可达对象之后就“死”了吗"></a>18.对象被判定为不可达对象之后就“死”了吗</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/a3a4286d19524b538b70f1aa2a208ba6.png" alt="image.png"></p>
+<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><blockquote>
+<p><strong>已经能够确定一个对象为垃圾之后，接下来要考虑的就是回收，怎么回收呢？得要有对应的算法，下面介绍常见的垃圾回收算法。高效   健壮</strong></p>
+</blockquote>
+<h4 id="标记-清除-Mark-Sweep"><a href="#标记-清除-Mark-Sweep" class="headerlink" title="标记-清除(Mark-Sweep)"></a>标记-清除(Mark-Sweep)</h4><ul>
+<li><strong>标记</strong></li>
+</ul>
+<p><strong>找出内存中需要回收的对象，并且把它们标记出来</strong></p>
+<blockquote>
+<p><strong>此时堆中所有的对象都会被扫描一遍，从而才能确定需要回收的对象，比较耗时</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\25.png?lastModify=1646720640"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/1521ea3d3ed64dfa814c22b06d43ccc6.png" alt="image.png"></p>
+<ul>
+<li><strong>清除</strong></li>
+</ul>
+<p><strong>清除掉被标记需要回收的对象，释放出对应的内存空间</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\26.png?lastModify=1646720640"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/5beab74efce64c5897d16f39db5e58f3.png" alt="image.png"></p>
+<p><code>缺点</code></p>
+<pre class="line-numbers language-none"><code class="language-none">标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程
+序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。
+(1)标记和清除两个过程都比较耗时，效率不高
+(2)会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="标记-复制-Mark-Copying"><a href="#标记-复制-Mark-Copying" class="headerlink" title="标记-复制(Mark-Copying)"></a>标记-复制(Mark-Copying)</h4><p><strong>将内存划分为两块相等的区域，每次只使用其中一块，如下图所示：</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\27.png?lastModify=1646720640"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/44cbc243638f4544917f0aa44e440c82.png" alt="image.png"></p>
+<p><strong>当其中一块内存使用完了，就将还存活的对象复制到另外一块上面，然后把已经使用过的内存空间一次清除掉。</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\28.png?lastModify=1646720640"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/b81f9e21abd84b0aaa102f27c4007986.png" alt="image.png"></p>
+<p><code>缺点:</code>空间利用率降低。</p>
+<h4 id="标记-整理-Mark-Compact"><a href="#标记-整理-Mark-Compact" class="headerlink" title="标记-整理(Mark-Compact)"></a>标记-整理(Mark-Compact)</h4><blockquote>
+<p><strong>复制收集算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都有100%存活的极端情况，所以老年代一般不能直接选用这种算法。</strong></p>
+</blockquote>
+<p><strong>标记过程仍然与”标记-清除”算法一样，但是后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</strong></p>
+<blockquote>
+<p><strong>其实上述过程相对”复制算法”来讲，少了一个”保留区”</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\25.png?lastModify=1646720640"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/331b1e9000d34b5093ed5b60a24e0402.png" alt="image.png"></p>
+<p><strong>让所有存活的对象都向一端移动，清理掉边界意外的内存。</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\29.png?lastModify=1646720640"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/874bcb40f36545279f8383408f50caf6.png" alt="image.png"></p>
+<h3 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h3><blockquote>
+<p><strong>既然上面介绍了3中垃圾收集算法，那么在堆内存中到底用哪一个呢？</strong></p>
+</blockquote>
+<p><strong>Young区：复制算法(对象在被分配之后，可能生命周期比较短，Young区复制效率比较高)</strong></p>
+<p><strong>Old区：标记清除或标记整理(Old区对象存活时间比较长，复制来复制去没必要，不如做个标记再清理)</strong></p>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><blockquote>
+<p><strong>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\30.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/6f9efd6ca5b246629b25dbfec3d4a16c.png" alt="image.png"></p>
+<ul>
+<li>Serial</li>
+</ul>
+<p><strong>Serial收集器是最基本、发展历史最悠久的收集器，曾经（在JDK1.3.1之前）是虚拟机新生代收集的唯一选择。</strong></p>
+<p><strong>它是一种单线程收集器，不仅仅意味着它只会使用一个CPU或者一条收集线程去完成垃圾收集工作，更重要的是其在进行垃圾收集的时候需要暂停其他线程。</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">优点：简单高效，拥有很高的单线程收集效率
+缺点：收集过程需要暂停所有线程
+算法：复制算法
+适用范围：新生代
+应用：Client模式下的默认新生代收集器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\31.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/e61e1fe960534b26b848708a753e05d6.png" alt="image.png"></p>
+<ul>
+<li>Serial Old</li>
+</ul>
+<p>Serial Old收集器是Serial收集器的老年代版本，也是一个单线程收集器，不同的是采用”<strong>标记-整理算法</strong>“，运行过程和Serial收集器一样。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\32.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/fb0e283d58494cc9993355a1fa6ddbee.png" alt="image.png"></p>
+<ul>
+<li>ParNew</li>
+</ul>
+<p><strong>可以把这个收集器理解为Serial收集器的多线程版本。</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">优点：在多CPU时，比Serial效率高。
+缺点：收集过程暂停所有应用程序线程，单CPU时比Serial效率差。
+算法：复制算法
+适用范围：新生代
+应用：运行在Server模式下的虚拟机中首选的新生代收集器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\33.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/6ff517bede0043a2b37ff35c2b85f45e.png" alt="image.png"></p>
+<ul>
+<li>Parallel Scavenge</li>
+</ul>
+<p><strong>Parallel Scavenge收集器是一个新生代收集器，它也是使用复制算法的收集器，又是并行的多线程收集器，看上去和ParNew一样，但是Parallel Scanvenge更关注系统的吞吐量</strong>。</p>
+<blockquote>
+<p><strong>吞吐量=运行用户代码的时间/(运行用户代码的时间+垃圾收集时间)</strong></p>
+<p><strong>比如虚拟机总共运行了100分钟，垃圾收集时间用了1分钟，吞吐量=(100-1)/100=99%。</strong></p>
+<p><strong>若吞吐量越大，意味着垃圾收集的时间越短，则用户代码可以充分利用CPU资源，尽快完成程序的运算任务。</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">-XX:MaxGCPauseMillis控制最大的垃圾收集停顿时间，
+-XX:GCRatio直接设置吞吐量的大小。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Parallel Old</li>
+</ul>
+<p><strong>Parallel Old收集器是Parallel Scavenge收集器的老年代版本，使用多线程和标记-整理算法</strong>进行垃圾回收，也是更加关注系统的<strong>吞吐量</strong>。</p>
+<ul>
+<li>CMS</li>
+</ul>
+<blockquote>
+<p><code>官网</code>： <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector">https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html#concurrent_mark_sweep_cms_collector</a></p>
+<p><strong>CMS(Concurrent Mark Sweep)收集器是一种以获取</strong> <code>最短回收停顿时间</code>为目标的收集器。</p>
+<p><strong>采用的是”标记-清除算法”,整个过程分为4步</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">(1)初始标记 CMS initial mark &nbsp; &nbsp; 标记GC Roots直接关联对象，不用Tracing，速度很快
+(2)并发标记 CMS concurrent mark  进行GC Roots Tracing
+(3)重新标记 CMS remark &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 修改并发标记因用户程序变动的内容
+(4)并发清除 CMS concurrent sweep 清除不可达对象回收空间，同时有新垃圾产生，留着下次清理称为浮动垃圾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>由于整个过程中，并发标记和并发清除，收集器线程可以与用户线程一起工作，所以总体上来说，CMS收集器的内存回收过程是与用户线程一起并发地执行的。</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\34.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/51a12718671b4d368a4721cb7cff4b5c.png" alt="image.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">优点：并发收集、低停顿
+缺点：产生大量空间碎片、并发阶段会降低吞吐量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>G1(Garbage-First)</li>
+</ul>
+<blockquote>
+<p><code>官网</code>： <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html#garbage_first_garbage_collection">https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html#garbage_first_garbage_collection</a></p>
+<p>**使用G1收集器时，Java堆的内存布局与就与其他收集器有很大差别，它将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔离的了，它们都是一部分Region（不需要连续）的集合。 **</p>
+<p><strong>每个Region大小都是一样的，可以是1M到32M之间的数值，但是必须保证是2的n次幂</strong></p>
+<p><strong>如果对象太大，一个Region放不下[超过Region大小的50%]，那么就会直接放到H中</strong></p>
+<p><strong>设置Region大小：-XX:G1HeapRegionSize=</strong><n><strong>M</strong></n></p>
+<p><strong>所谓Garbage-Frist，其实就是优先回收垃圾最多的Region区域</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">（1）分代收集（仍然保留了分代的概念）
+（2）空间整合（整体上属于“标记-整理”算法，不会导致空间碎片）
+（3）可预测的停顿（比CMS更先进的地方在于能让使用者明确指定一个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\35.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/943614eae58f4649b9210c32fb2f8f98.png" alt="image.png"></p>
+<p><strong>工作过程可以分为如下几步</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">初始标记（Initial Marking） &nbsp; &nbsp;  标记以下GC Roots能够关联的对象，并且修改TAMS的值，需要暂停用户线程
+并发标记（Concurrent Marking） &nbsp; 从GC Roots进行可达性分析，找出存活的对象，与用户线程并发执行
+最终标记（Final Marking） &nbsp; &nbsp; &nbsp;  修正在并发标记阶段因为用户程序的并发执行导致变动的数据，需暂停用户线程
+筛选回收（Live Data Counting and Evacuation） 对各个Region的回收价值和成本进行排序，根据用户所期望的GC停顿时间制定回收计划<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\36.png?lastModify=1646736013"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/a04fb27a0ef64f8ca25a96eb95d44d71.png" alt="image.png"></p>
+<ul>
+<li>ZGC</li>
+</ul>
+<blockquote>
+<p><code>官网</code>： <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/11/gctuning/z-garbage-collector1.html#GUID-A5A42691-095E-47BA-B6DC-FB4E5FAA43D0">https://docs.oracle.com/en/java/javase/11/gctuning/z-garbage-collector1.html#GUID-A5A42691-095E-47BA-B6DC-FB4E5FAA43D0</a></p>
+<p><strong>JDK11新引入的ZGC收集器，不管是物理上还是逻辑上，ZGC中已经不存在新老年代的概念了</strong></p>
+<p><strong>会分为一个个page，当进行GC操作时会对page进行压缩，因此没有碎片问题</strong></p>
+<p><strong>只能在64位的linux上使用，目前用得还比较少</strong></p>
+</blockquote>
+<p><strong>（1）可以达到10ms以内的停顿时间要求</strong></p>
+<p><strong>（2）支持TB级别的内存</strong></p>
+<p><strong>（3）堆内存变大后停顿时间还是在10ms以内</strong></p>
+<h2 id="垃圾收集器分类"><a href="#垃圾收集器分类" class="headerlink" title="垃圾收集器分类"></a>垃圾收集器分类</h2><ul>
+<li><strong>串行收集器</strong>-&gt;Serial和Serial Old</li>
+</ul>
+<p><strong>只能有一个垃圾回收线程执行，用户线程暂停。</strong></p>
+<p><code>适用于内存比较小的嵌入式设备</code>。</p>
+<ul>
+<li><strong>并行收集器</strong>[吞吐量优先]-&gt;Parallel Scanvenge、Parallel Old、ParNeww</li>
+</ul>
+<p><strong>多条垃圾收集线程并行工作，但此时用户线程仍然处于等待状态。</strong></p>
+<p><code>适用于科学计算、后台处理等若交互场景</code>。</p>
+<ul>
+<li><strong>并发收集器</strong>[停顿时间优先]-&gt;CMS、G1、ZGC</li>
+</ul>
+<p><strong>用户线程和垃圾收集线程同时执行(但并不一定是并行的，可能是交替执行的)，垃圾收集线程在执行的时候不会停顿用户线程的运行。</strong></p>
+<p><code>适用于相对时间有要求的场景，比如Web</code>。</p>
+<h2 id="吞吐量和停顿时间"><a href="#吞吐量和停顿时间" class="headerlink" title="吞吐量和停顿时间"></a>吞吐量和停顿时间</h2><ul>
+<li>**停顿时间-&gt;垃圾收集器 **<code>进行</code> 垃圾回收终端应用执行响应的时间</li>
+<li><strong>吞吐量-&gt;运行用户代码时间/(运行用户代码时间+垃圾收集时间)</strong></li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">停顿时间越短就越适合需要和用户交互的程序，良好的响应速度能提升用户体验；
+高吞吐量则可以高效地利用CPU时间，尽快完成程序的运算任务，主要适合在后台运算而不需要太多交互的任务。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><code>小结</code>:这两个指标也是评价垃圾回收器好处的标准。</p>
+<h2 id="生产环境中，如何选择合适的垃圾收集器"><a href="#生产环境中，如何选择合适的垃圾收集器" class="headerlink" title="生产环境中，如何选择合适的垃圾收集器"></a>生产环境中，如何选择合适的垃圾收集器</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/collectors.html#sthref28">https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/collectors.html#sthref28</a></p>
+</blockquote>
+<ul>
+<li><strong>优先调整堆的大小让服务器自己来选择</strong></li>
+<li><strong>如果内存小于100M，使用串行收集器</strong></li>
+<li><strong>如果是单核，并且没有停顿时间要求，使用串行或JVM自己选</strong></li>
+<li><strong>如果允许停顿时间超过1秒，选择并行或JVM自己选</strong></li>
+<li><strong>如果响应时间最重要，并且不能超过1秒，使用并发收集器</strong></li>
+</ul>
+<h2 id="如何判断是否使用G1垃圾收集器"><a href="#如何判断是否使用G1垃圾收集器" class="headerlink" title="如何判断是否使用G1垃圾收集器"></a>如何判断是否使用G1垃圾收集器</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/G1.html#use_cases">https://docs.oracle.com/javase/8/docs/technotes/guides/vm/G1.html#use_cases</a></p>
+</blockquote>
+<p><strong>JDK 7开始使用，JDK 8非常成熟，JDK 9默认的垃圾收集器，适用于新老生代。</strong></p>
+<p><strong>是否使用G1收集器？</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">（1）50%以上的堆被存活对象占用
+（2）对象分配和晋升的速度变化非常大
+（3）垃圾回收时间比较长<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="JVM常用命令"><a href="#JVM常用命令" class="headerlink" title="JVM常用命令"></a>JVM常用命令</h2><ul>
+<li>jps</li>
+</ul>
+<blockquote>
+<p>查看java进程</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">The jps command lists the instrumented Java HotSpot VMs on the target system. The command is limited to reporting information on JVMs for which it has the access permissions.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>jinfo</li>
+</ul>
+<blockquote>
+<p><strong>（1）实时查看和调整JVM配置参数</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">The jinfo command prints Java configuration information for a specified Java process or core file or a remote debug server. The configuration information includes Java system properties and Java Virtual Machine (JVM) command-line flags.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>（2）查看用法</strong></p>
+<p><strong>jinfo -flag name PID     查看某个java进程的name属性的值</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jinfo -flag MaxHeapSize PID 
+jinfo -flag UseG1GC PID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>3）修改</strong></p>
+<p><strong>参数只有被标记为manageable的flags可以被实时修改</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jinfo -flag [+|-] PID
+jinfo -flag &lt;name&gt;=&lt;value&gt; PID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>（4）查看曾经赋过值的一些参数</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jinfo -flags PID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>jstat</li>
+</ul>
+<blockquote>
+<p><strong>（1）查看虚拟机性能统计信息</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">The jstat command displays performance statistics for an instrumented Java HotSpot VM. The target JVM is identified by its virtual machine identifier, or vmid option.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>（2）查看类装载信息</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jstat -class PID 1000 10 &nbsp; 查看某个java进程的类装载信息，每1000毫秒输出一次，共输出10次<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>（3）查看垃圾收集信息</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jstat -gc PID 1000 10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>jstack</li>
+</ul>
+<blockquote>
+<p><strong>（1）查看线程堆栈信息</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">The jstack command prints Java stack traces of Java threads for a specified Java process, core file, or remote debug server.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>（2）用法</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jstack PID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="JVM死锁情况分析"><a href="#JVM死锁情况分析" class="headerlink" title="JVM死锁情况分析"></a>JVM死锁情况分析</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//运行主类</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeadLockDemo</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">DeadLock</span> d1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">DeadLock</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">DeadLock</span> d2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">DeadLock</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread</span> t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread</span> t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//定义锁对象</span>
+<span class="token keyword">class</span> <span class="token class-name">MyLock</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> obj1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> obj2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//死锁代码</span>
+<span class="token keyword">class</span> <span class="token class-name">DeadLock</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+    <span class="token class-name">DeadLock</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>flag<span class="token operator">=</span>flag<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">MyLock</span><span class="token punctuation">.</span>obj1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"----if获得obj1锁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">MyLock</span><span class="token punctuation">.</span>obj2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"----if获得obj2锁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">MyLock</span><span class="token punctuation">.</span>obj2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"----否则获得obj2锁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">MyLock</span><span class="token punctuation">.</span>obj1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"----否则获得obj1锁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>jmap</li>
+</ul>
+<blockquote>
+<p><strong>（1）生成堆转储快照</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">The jmap command prints shared object memory maps or heap memory details of a specified process, core file, or remote debug server.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>（2）打印出堆内存相关信息</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">jmap -heap PID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">jinfo -flag UsePSAdaptiveSurvivorSizePolicy 35352
+-XX:SurvivorRatio=8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="G1调优策略"><a href="#G1调优策略" class="headerlink" title="G1调优策略"></a>G1调优策略</h2><blockquote>
+<p><strong>（1）不要手动设置新生代和老年代的大小，只要设置整个堆的大小</strong></p>
+<p><strong>why</strong>：<a target="_blank" rel="noopener" href="https://blogs.oracle.com/poonam/increased-heap-usage-with-g1-gc">https://blogs.oracle.com/poonam/increased-heap-usage-with-g1-gc</a></p>
+<pre class="line-numbers language-none"><code class="language-none">G1收集器在运行过程中，会自己调整新生代和老年代的大小
+其实是通过adapt代的大小来调整对象晋升的速度和年龄，从而达到为收集器设置的暂停时间目标
+如果手动设置了大小就意味着放弃了G1的自动调优<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p><strong>（2）不断调优暂停时间目标</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">一般情况下这个值设置到100ms或者200ms都是可以的(不同情况下会不一样)，但如果设置成50ms就不太合理。暂停时间设置的太短，就会导致出现G1跟不上垃圾产生的速度。最终退化成Full GC。所以对这个参数的调优是一个持续的过程，逐步调整到最佳状态。暂停时间只是一个目标，并不能总是得到满足。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p><strong>（3）使用-XX:ConcGCThreads=n来增加标记线程的数量</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">IHOP如果阀值设置过高，可能会遇到转移失败的风险，比如对象进行转移时空间不足。如果阀值设置过低，就会使标记周期运行过于频繁，并且有可能混合收集期回收不到空间。 
+IHOP值如果设置合理，但是在并发周期时间过长时，可以尝试增加并发线程数，调高ConcGCThreads。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>**（4）MixedGC调优 **</p>
+<pre class="line-numbers language-none"><code class="language-none">-XX:InitiatingHeapOccupancyPercent
+-XX:G1MixedGCLiveThresholdPercent
+-XX:G1MixedGCCountTarger
+-XX:G1OldCSetRegionThresholdPercent<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p><strong>（5）适当增加堆内存大小</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>（6）不正常的Full GC</strong></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">有时候会发现系统刚刚启动的时候，就会发生一次Full GC，但是老年代空间比较充足，一般是由Metaspace区域引起的。可以通过MetaspaceSize适当增加其大家，比如256M。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="JVM性能优化指南"><a href="#JVM性能优化指南" class="headerlink" title="JVM性能优化指南"></a>JVM性能优化指南</h2><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="file://E:\桌面\yzt\笔记课件\JVM\3天JVM训练营\资料+笔记\images\60.png?lastModify=1646833365"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1463/1646137467048/d86c29710a1a45ddbce7425a592a8528.png" alt="image.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fish</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/24.html">http://example.com/posts/24.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Fish</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JVM-java/">JVM java</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/25.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">设计模式</div></div></a></div><div class="next-post pull-right"><a href="/posts/23.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">分布式基础</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="author-info__name">Fish</div><div class="author-info__description">书中自有黄金屋</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Wwwsea/Wwwsea.github.io"><i class="fab fa-home"></i><span>个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wwwsea/Wwwsea.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2667657399&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我们顶峰相见吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM%E9%9D%A2%E8%AF%95%E9%A2%98%E5%A4%A7%E5%85%A8-Lecturer-%EF%BC%9A%E4%B8%A5%E9%95%87%E6%B6%9B"><span class="toc-number">1.</span> <span class="toc-text">JVM面试题大全                Lecturer ：严镇涛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81JVM%EF%BC%8C%E4%B8%8D%E8%A6%81JVM%E5%8F%AF%E4%BB%A5%E5%90%97%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">1.为什么需要JVM，不要JVM可以吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-JDK%EF%BC%8CJRE%E4%BB%A5%E5%8F%8AJVM%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.2.</span> <span class="toc-text">2.JDK，JRE以及JVM的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%88%91%E4%BB%AC%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8%E5%88%B0%E5%BA%95%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88%E4%BA%8B%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">3.我们的编译器到底干了什么事？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4.类加载机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1"><span class="toc-number">1.5.</span> <span class="toc-text">5.类加载器的层次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-number">1.6.</span> <span class="toc-text">6.双亲委派机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A6%82%E4%BD%95%E6%89%93%E7%A0%B4%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE"><span class="toc-number">1.7.</span> <span class="toc-text">7.如何打破双亲委派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA"><span class="toc-number">1.8.</span> <span class="toc-text">8.运行时数据区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90%E7%9A%84%EF%BC%9F"><span class="toc-number">1.9.</span> <span class="toc-text">9.栈帧结构是什么样子的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-number">1.10.</span> <span class="toc-text">10.动态链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-java%E5%A0%86%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%88%86%E4%BB%A3%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.11.</span> <span class="toc-text">11.java堆为什么要进行分代设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E8%80%81%E5%B9%B4%E4%BB%A3%E7%9A%84%E6%8B%85%E4%BF%9D%E6%9C%BA%E5%88%B6"><span class="toc-number">1.12.</span> <span class="toc-text">12.老年代的担保机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E4%B8%BA%E4%BB%80%E4%B9%88Eden%EF%BC%9AS0%EF%BC%9AS1-%E6%98%AF8%EF%BC%9A1%EF%BC%9A1"><span class="toc-number">1.13.</span> <span class="toc-text">13.为什么Eden：S0：S1 是8：1：1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">1.14.</span> <span class="toc-text">14.对象的创建过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E6%96%B9%E6%B3%95%E5%8C%BA%E4%B8%8E%E5%85%83%E6%95%B0%E6%8D%AE%E5%8C%BA%E4%BB%A5%E5%8F%8A%E6%8C%81%E4%B9%85%E4%BB%A3%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB"><span class="toc-number">1.15.</span> <span class="toc-text">15.方法区与元数据区以及持久代到底是什么关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%89%8D%E4%BC%9A%E8%BF%9B%E8%A1%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">1.16.</span> <span class="toc-text">16.什么时候才会进行垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#17-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%9E%83%E5%9C%BE%EF%BC%9F"><span class="toc-number">1.16.1.</span> <span class="toc-text">17. 如何确定一个对象是垃圾？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E5%AF%B9%E8%B1%A1%E8%A2%AB%E5%88%A4%E5%AE%9A%E4%B8%BA%E4%B8%8D%E5%8F%AF%E8%BE%BE%E5%AF%B9%E8%B1%A1%E4%B9%8B%E5%90%8E%E5%B0%B1%E2%80%9C%E6%AD%BB%E2%80%9D%E4%BA%86%E5%90%97"><span class="toc-number">1.17.</span> <span class="toc-text">18.对象被判定为不可达对象之后就“死”了吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.18.</span> <span class="toc-text">垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4-Mark-Sweep"><span class="toc-number">1.18.0.1.</span> <span class="toc-text">标记-清除(Mark-Sweep)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6-Mark-Copying"><span class="toc-number">1.18.0.2.</span> <span class="toc-text">标记-复制(Mark-Copying)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86-Mark-Compact"><span class="toc-number">1.18.0.3.</span> <span class="toc-text">标记-整理(Mark-Compact)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.18.1.</span> <span class="toc-text">分代收集算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.19.</span> <span class="toc-text">垃圾收集器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-number">1.20.</span> <span class="toc-text">垃圾收集器分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F%E5%92%8C%E5%81%9C%E9%A1%BF%E6%97%B6%E9%97%B4"><span class="toc-number">1.21.</span> <span class="toc-text">吞吐量和停顿时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E4%B8%AD%EF%BC%8C%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.22.</span> <span class="toc-text">生产环境中，如何选择合适的垃圾收集器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8G1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">1.23.</span> <span class="toc-text">如何判断是否使用G1垃圾收集器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.24.</span> <span class="toc-text">JVM常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E6%AD%BB%E9%94%81%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90"><span class="toc-number">1.25.</span> <span class="toc-text">JVM死锁情况分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G1%E8%B0%83%E4%BC%98%E7%AD%96%E7%95%A5"><span class="toc-number">1.26.</span> <span class="toc-text">G1调优策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97"><span class="toc-number">1.27.</span> <span class="toc-text">JVM性能优化指南</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/32.html" title="MySQL基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn70U.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MySQL基础"/></a><div class="content"><a class="title" href="/posts/32.html" title="MySQL基础">MySQL基础</a><time datetime="2023-09-11T06:59:03.000Z" title="发表于 2023-09-11 14:59:03">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/31.html" title="redis基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="redis基础"/></a><div class="content"><a class="title" href="/posts/31.html" title="redis基础">redis基础</a><time datetime="2023-09-11T06:58:37.000Z" title="发表于 2023-09-11 14:58:37">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/29.html" title="MQ消息队列"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MQ消息队列"/></a><div class="content"><a class="title" href="/posts/29.html" title="MQ消息队列">MQ消息队列</a><time datetime="2023-09-11T06:58:13.000Z" title="发表于 2023-09-11 14:58:13">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/28.html" title="Spring基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="Spring基础"/></a><div class="content"><a class="title" href="/posts/28.html" title="Spring基础">Spring基础</a><time datetime="2023-09-11T06:57:18.000Z" title="发表于 2023-09-11 14:57:18">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/27.html" title="SpringCloud基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="SpringCloud基础"/></a><div class="content"><a class="title" href="/posts/27.html" title="SpringCloud基础">SpringCloud基础</a><time datetime="2023-09-11T06:56:58.000Z" title="发表于 2023-09-11 14:56:58">2023-09-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Fish</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'dX752Hc7LGu8hhVSwuAwW6FF-MdYXbMMI',
+      appKey: 'vtigGSfIIobVHPC4x3FdrYao',
+      placeholder: '畅所欲言！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: 'dx752hc7.api.lncldglobal.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/posts/24.html'
+    this.page.identifier = 'posts/24.html'
+    this.page.title = 'JVM严镇涛版'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xianqi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer id="dsq-count-scr" src="//xianqi.disqus.com/count.js" async></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/js/animate.js"></script><div class="aplayer no-destroy" data-id="4091867406" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="auto" data-autoplay="false" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="//code.tidio.co/prhgttkzeqwkdqfrh5cvonenwrvvz0gi.js" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

@@ -1,0 +1,1094 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spring基础 | Fish</title><meta name="keywords" content="spring"><meta name="author" content="Fish"><meta name="copyright" content="Fish"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="讲师：邓澎波 (上传仅供个人学习交流使用 如有侵权立刻删除)   Spring面试专题1.Spring应该很熟悉吧？来介绍下你的Spring的理解1.1 Spring的发展历程  先介绍Spring是怎么来的，发展中有哪些核心的节点，当前的最新版本是什么等   通过上图可以比较清晰的看到Spring的各个时间版本对应的时间节点了。也就是Spring从之前单纯的xml的配置方式，到现在的完全基于注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring基础">
+<meta property="og:url" content="http://example.com/posts/28.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="讲师：邓澎波 (上传仅供个人学习交流使用 如有侵权立刻删除)   Spring面试专题1.Spring应该很熟悉吧？来介绍下你的Spring的理解1.1 Spring的发展历程  先介绍Spring是怎么来的，发展中有哪些核心的节点，当前的最新版本是什么等   通过上图可以比较清晰的看到Spring的各个时间版本对应的时间节点了。也就是Spring从之前单纯的xml的配置方式，到现在的完全基于注">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg">
+<meta property="article:published_time" content="2023-09-11T06:57:18.000Z">
+<meta property="article:modified_time" content="2023-09-11T10:01:04.931Z">
+<meta property="article:author" content="Fish">
+<meta property="article:tag" content="spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2022/10/25/xRhB6S.png"><link rel="canonical" href="http://example.com/posts/28"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"一年之内的产物","messageNext":"技术可能存在过期"},
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Fish","link":"链接: ","source":"来源: Fish","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Spring基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-11 18:01:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link defer rel="stylesheet" href="/css/customm.css" ><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/icon.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/background.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/index_ee.css"><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Fish" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fish</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-11T06:57:18.000Z" title="发表于 2023-09-11 14:57:18">2023-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-11T10:01:04.931Z" title="更新于 2023-09-11 18:01:04">2023-09-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/spring%E6%A1%86%E6%9E%B6/">spring框架</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>讲师：邓澎波</p>
+<p>(上传仅供个人学习交流使用 如有侵权立刻删除) </p>
+</blockquote>
+<h1 id="Spring面试专题"><a href="#Spring面试专题" class="headerlink" title="Spring面试专题"></a>Spring面试专题</h1><h1 id="1-Spring应该很熟悉吧？来介绍下你的Spring的理解"><a href="#1-Spring应该很熟悉吧？来介绍下你的Spring的理解" class="headerlink" title="1.Spring应该很熟悉吧？来介绍下你的Spring的理解"></a>1.Spring应该很熟悉吧？来介绍下你的Spring的理解</h1><h2 id="1-1-Spring的发展历程"><a href="#1-1-Spring的发展历程" class="headerlink" title="1.1 Spring的发展历程"></a>1.1 Spring的发展历程</h2><p>  先介绍Spring是怎么来的，发展中有哪些核心的节点，当前的最新版本是什么等</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/f401749c6b6c435d932f949067f0b252.png" alt="image.png"></p>
+<p> 通过上图可以比较清晰的看到Spring的各个时间版本对应的时间节点了。也就是Spring从之前单纯的xml的配置方式，到现在的完全基于注解的编程方式发展。</p>
+<h2 id="1-2-Spring的组成"><a href="#1-2-Spring的组成" class="headerlink" title="1.2 Spring的组成"></a>1.2 Spring的组成</h2><p>  Spring是一个轻量级的IoC和AOP容器框架。是为Java应用程序提供基础性服务的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于Java的配置.</p>
+<p>主要由以下几个模块组成：</p>
+<ul>
+<li>Spring Core：核心类库，提供IOC服务；</li>
+<li>Spring Context：提供框架式的Bean访问方式，以及企业级功能（JNDI、定时任务等）；</li>
+<li>Spring AOP：AOP服务；</li>
+<li>Spring DAO：对JDBC的抽象，简化了数据访问异常的处理；</li>
+<li>Spring ORM：对现有的ORM框架的支持；</li>
+<li>Spring Web：提供了基本的面向Web的综合特性，例如多方文件上传；</li>
+<li>Spring MVC：提供面向Web应用的Model-View-Controller实现。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/2019011310002937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NTI2NTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="1-3-Spring的好处"><a href="#1-3-Spring的好处" class="headerlink" title="1.3 Spring的好处"></a>1.3 Spring的好处</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>好处</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>轻量</td>
+<td align="left">Spring 是轻量的，基本的版本大约2MB。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>控制反转</td>
+<td align="left">Spring通过控制反转实现了松散耦合，对象们给出它们的依赖，<code>&lt;br&gt;</code>而不是创建或查找依赖的对象们。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>面向切面编程(AOP)</td>
+<td align="left">Spring支持面向切面的编程，并且把应用业务逻辑和系统服务分开。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>容器</td>
+<td align="left">Spring 包含并管理应用中对象的生命周期和配置。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MVC框架</td>
+<td align="left">Spring的WEB框架是个精心设计的框架，是Web框架的一个很好的替代品。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>事务管理</td>
+<td align="left">Spring 提供一个持续的事务管理接口，<code>&lt;br&gt;</code>可以扩展到上至本地事务下至全局事务（JTA）。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>异常处理</td>
+<td align="left">Spring 提供方便的API把具体技术相关的异常 <code>&lt;br&gt;</code>(比如由JDBC，Hibernate or JDO抛出的)转化为一致的unchecked 异常。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>最重要的</td>
+<td align="left">用的人多！！！</td>
+</tr>
+</tbody></table>
+<h1 id="2-Spring框架中用到了哪些设计模式"><a href="#2-Spring框架中用到了哪些设计模式" class="headerlink" title="2.Spring框架中用到了哪些设计模式"></a>2.Spring框架中用到了哪些设计模式</h1><h2 id="2-1-单例模式"><a href="#2-1-单例模式" class="headerlink" title="2.1 单例模式"></a>2.1 单例模式</h2><p>  单例模式应该是大家印象最深的一种设计模式了。在Spring中最明显的使用场景是在配置文件中配置注册bean对象的时候<strong>设置scope的值为singleton</strong> 。</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.dpb.pojo.User<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span> <span class="token attr-name">scope</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>singleton<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>波波烤鸭<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-2-原型模式"><a href="#2-2-原型模式" class="headerlink" title="2.2 原型模式"></a>2.2 原型模式</h2><p>  原型模式也叫克隆模式，Spring中该模式使用的很明显，和单例一样在bean标签中设置scope的属性prototype即表示该bean以克隆的方式生成</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.dpb.pojo.User<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span> <span class="token attr-name">scope</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prototype<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>波波烤鸭<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-3-模板模式"><a href="#2-3-模板模式" class="headerlink" title="2.3 模板模式"></a>2.3 模板模式</h2><p>  模板模式的核心是父类定义好流程，然后将流程中需要子类实现的方法就抽象话留给子类实现，Spring中的JdbcTemplate就是这样的实现。我们知道jdbc的步骤是固定</p>
+<ul>
+<li>加载驱动,</li>
+<li>获取连接通道,</li>
+<li>构建sql语句.</li>
+<li>执行sql语句,</li>
+<li>关闭资源</li>
+</ul>
+<p>  在这些步骤中第3步和第四步是不确定的,所以就留给客户实现，而我们实际使用JdbcTemplate的时候也确实是只需要构建SQL就可以了.这就是典型的模板模式。我们以query方法为例来看下JdbcTemplate中的代码.</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/a1f1150a38f94b518794e3e5df467092.png" alt="image.png"></p>
+<h2 id="2-4-观察者模式"><a href="#2-4-观察者模式" class="headerlink" title="2.4 观察者模式"></a>2.4 观察者模式</h2><p>  观察者模式定义的是对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。使用比较场景是在监听器中而spring中Observer模式常用的地方也是listener的实现。如ApplicationListener.</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/32247ef6524c430dab31ea97294f28ae.png" alt="image.png"></p>
+<h2 id="2-5-工厂模式"><a href="#2-5-工厂模式" class="headerlink" title="2.5 工厂模式"></a>2.5 工厂模式</h2><p><strong>简单工厂模式</strong>：</p>
+<p>  简单工厂模式就是通过工厂根据传递进来的参数决定产生哪个对象。Spring中我们通过getBean方法获取对象的时候根据id或者name获取就是简单工厂模式了。</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xmlns:</span>context</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/context<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>annotation-config</span><span class="token punctuation">/&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.dpb.pojo.User<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span>  <span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>波波烤鸭<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>工厂方法模式</strong>：</p>
+<p>  在Spring中我们一般是将Bean的实例化直接交给容器去管理的，实现了使用和创建的分离，这时容器直接管理对象，还有种情况是，bean的创建过程我们交给一个工厂去实现，而Spring容器管理这个工厂。这个就是我们讲的工厂模式，在Spring中有两种实现一种是静态工厂方法模式，一种是动态工厂方法模式。以静态工厂来演示</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * User 工厂类
+ * @author dpb[波波烤鸭]
+ *
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserFactory</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">/**
+	 * 必须是static方法
+	 * @return
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">UserBean</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>application.xml文件中注册</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token comment">&lt;!-- 静态工厂方式配置 配置静态工厂及方法 --&gt;</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.dpb.factory.UserFactory<span class="token punctuation">"</span></span> <span class="token attr-name">factory-method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>getInstance<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-6-适配器模式"><a href="#2-6-适配器模式" class="headerlink" title="2.6 适配器模式"></a>2.6 适配器模式</h2><p>  将一个类的接口转换成客户希望的另外一个接口。使得原本由于接口不兼容而不能一起工作的那些类可以在一起工作。这就是适配器模式。在Spring中在AOP实现中的Advice和interceptor之间的转换就是通过适配器模式实现的。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">MethodBeforeAdviceAdapter</span> <span class="token keyword">implements</span> <span class="token class-name">AdvisorAdapter</span><span class="token punctuation">,</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">supportsAdvice</span><span class="token punctuation">(</span><span class="token class-name">Advice</span> advice<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token punctuation">(</span>advice <span class="token keyword">instanceof</span> <span class="token class-name">MethodBeforeAdvice</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token class-name">MethodInterceptor</span> <span class="token function">getInterceptor</span><span class="token punctuation">(</span><span class="token class-name">Advisor</span> advisor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">MethodBeforeAdvice</span> advice <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">MethodBeforeAdvice</span><span class="token punctuation">)</span> advisor<span class="token punctuation">.</span><span class="token function">getAdvice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 通知类型匹配对应的拦截器</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MethodBeforeAdviceInterceptor</span><span class="token punctuation">(</span>advice<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-7-装饰者模式"><a href="#2-7-装饰者模式" class="headerlink" title="2.7 装饰者模式"></a>2.7 装饰者模式</h2><p>  装饰者模式又称为包装模式(Wrapper),作用是用来动态的为一个对象增加新的功能。装饰模式是一种用于代替继承的技术，无须通过继承增加子类就能扩展对象的新功能。使用对象的关联关系代替继承关系，更加灵活，同时避免类型体系的快速膨胀。<br>  spring中用到的包装器模式在类名上有两种表现：一种是类名中含有Wrapper，另一种是类名中含有Decorator。基本上都是动态地给一个对象添加一些额外的职责。<br>  具体的使用在Spring session框架中的SessionRepositoryRequestWrapper使用包装模式对原生的request的功能进行增强，可以将session中的数据和分布式数据库进行同步，这样即使当前tomcat崩溃，session中的数据也不会丢失。</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.session<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-session<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.3.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-8-代理模式"><a href="#2-8-代理模式" class="headerlink" title="2.8 代理模式"></a>2.8 代理模式</h2><p>  代理模式应该是大家非常熟悉的设计模式了，在Spring中AOP的实现中代理模式使用的很彻底.</p>
+<h2 id="2-9-策略模式"><a href="#2-9-策略模式" class="headerlink" title="2.9 策略模式"></a>2.9 策略模式</h2><p>  策略模式对应于解决某一个问题的一个算法族，允许用户从该算法族中任选一个算法解决某一问题，同时可以方便的更换算法或者增加新的算法。并且由客户端决定调用哪个算法，spring中在实例化对象的时候用到Strategy模式。XmlBeanDefinitionReader,PropertiesBeanDefinitionReader</p>
+<h2 id="2-10-责任链默认"><a href="#2-10-责任链默认" class="headerlink" title="2.10 责任链默认"></a>2.10 责任链默认</h2><p>AOP中的拦截器链</p>
+<h2 id="2-11-委托者模式"><a href="#2-11-委托者模式" class="headerlink" title="2.11 委托者模式"></a>2.11 委托者模式</h2><p>DelegatingFilterProxy，整合Shiro，SpringSecurity的时候都有用到。</p>
+<p>…..</p>
+<h1 id="3-Autowired和Resource关键字的区别？"><a href="#3-Autowired和Resource关键字的区别？" class="headerlink" title="3.Autowired和Resource关键字的区别？"></a>3.Autowired和Resource关键字的区别？</h1><p>  这是一个相对比较简单的问题，@Resource和@Autowired都是做bean的注入时使用，其实@Resource并不是Spring的注解，它的包是javax.annotation.Resource，需要导入，但是Spring支持该注解的注入。</p>
+<h2 id="3-1-共同点"><a href="#3-1-共同点" class="headerlink" title="3.1 共同点"></a>3.1 共同点</h2><p>  两者都可以写在字段和setter方法上。两者如果都写在字段上，那么就不需要再写setter方法.</p>
+<h2 id="3-2-不同点"><a href="#3-2-不同点" class="headerlink" title="3.2 不同点"></a>3.2 不同点</h2><p><strong>@Autowired</strong></p>
+<p>  @Autowired为Spring提供的注解，需要导入org.springframework.beans.factory.annotation.Autowired;只按照byType注入。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestServiceImpl</span> <span class="token punctuation">{</span>
+ <span class="token comment">// 下面两种@Autowired只要使用一种即可</span>
+ <span class="token annotation punctuation">@Autowired</span>
+ <span class="token keyword">private</span> <span class="token class-name">UserDao</span> userDao<span class="token punctuation">;</span> <span class="token comment">// 用于字段上</span>
+ 
+ <span class="token annotation punctuation">@Autowired</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserDao</span><span class="token punctuation">(</span><span class="token class-name">UserDao</span> userDao<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 用于属性的方法上</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>userDao <span class="token operator">=</span> userDao<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>@Autowired注解是按照类型（byType）装配依赖对象，默认情况下它要求依赖对象必须存在，如果允许null值，可以设置它的required属性为false。如果我们想使用按照名称（byName）来装配，可以结合@Qualififier注解一起使用。如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestServiceImpl</span> <span class="token punctuation">{</span>
+ <span class="token annotation punctuation">@Autowired</span>
+ <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"userDao"</span><span class="token punctuation">)</span>
+ <span class="token keyword">private</span> <span class="token class-name">UserDao</span> userDao<span class="token punctuation">;</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>@Resource</strong></p>
+<p>  @Resource默认按照ByName自动注入，由J2EE提供，需要导入包javax.annotation.Resource。@Resource有两个重要的属性：name和type，而Spring将@Resource注解的name属性解析为bean的名字，而type属性则解析为bean的类型。所以，如果使用name属性，则使用byName的自动注入策略，而使用type属性时则使用byType自动注入策略。如果既不制定name也不制定type属性，这时将通过反射机制使用byName自动注入策略.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestServiceImpl</span> <span class="token punctuation">{</span>
+ <span class="token comment">// 下面两种@Resource只要使用一种即可</span>
+ <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"userDao"</span><span class="token punctuation">)</span>
+ <span class="token keyword">private</span> <span class="token class-name">UserDao</span> userDao<span class="token punctuation">;</span> <span class="token comment">// 用于字段上</span>
+ 
+ <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"userDao"</span><span class="token punctuation">)</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserDao</span><span class="token punctuation">(</span><span class="token class-name">UserDao</span> userDao<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 用于属性的setter方法上</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>userDao <span class="token operator">=</span> userDao<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>@Resource装配顺序：</p>
+<ol>
+<li>如果同时指定了name和type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了name，则从上下文中查找名称（id）匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了type，则从上下文中找到类似匹配的唯一bean进行装配，找不到或是找到多个，都会抛出异常。</li>
+<li>如果既没有指定name，又没有指定type，则自动按照byName方式进行装配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配。</li>
+</ol>
+<p>@Resource的作用相当于@Autowired，只不过@Autowired按照byType自动注入。</p>
+<h1 id="4-Spring中常用的注解有哪些，重点介绍几个"><a href="#4-Spring中常用的注解有哪些，重点介绍几个" class="headerlink" title="4.Spring中常用的注解有哪些，重点介绍几个"></a>4.Spring中常用的注解有哪些，重点介绍几个</h1><p>@Controller  @Service @RestController @RequestBody,@Indexd  @Import等</p>
+<p>@Indexd提升 @ComponentScan的效率</p>
+<p>@Import注解是import标签的替换，在SpringBoot的自动装配中非常重要，也是EnableXXX的前置基础。</p>
+<h1 id="5-循环依赖"><a href="#5-循环依赖" class="headerlink" title="5.循环依赖"></a>5.循环依赖</h1><p>面试的重点，大厂必问之一：</p>
+<h2 id="5-1-什么是循环依赖"><a href="#5-1-什么是循环依赖" class="headerlink" title="5.1 什么是循环依赖"></a>5.1 什么是循环依赖</h2><p>看下图</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/d1e9bec7b2d648b3b777caeb6da2a872.png" alt="image.png"></p>
+<p>  上图是循环依赖的三种情况，虽然方式有点不一样，但是循环依赖的本质是一样的，就你的完整创建要依赖与我，我的完整创建也依赖于你。相互依赖从而没法完整创建造成失败。</p>
+<h2 id="5-2-代码演示"><a href="#5-2-代码演示" class="headerlink" title="5.2 代码演示"></a>5.2 代码演示</h2><p>  我们再通过代码的方式来演示下循环依赖的效果</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CircularTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token class-name">CircularTest1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">CircularTest1</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">CircularTest2</span> circularTest2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CircularTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CircularTest2</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">CircularTest1</span> circularTest1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CircularTest1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行后出现了 StackOverflowError 错误</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/ad194978a72a4312bff8f659806028e9.png" alt="image.png"></p>
+<p>  上面的就是最基本的循环依赖的场景，你需要我，我需要你，然后就报错了。而且上面的这种设计情况我们是没有办法解决的。那么针对这种场景我们应该要怎么设计呢？这个是关键！</p>
+<h2 id="5-3-分析问题"><a href="#5-3-分析问题" class="headerlink" title="5.3 分析问题"></a>5.3 分析问题</h2><p>  首先我们要明确一点就是如果这个对象A还没创建成功，在创建的过程中要依赖另一个对象B，而另一个对象B也是在创建中要依赖对象A，这种肯定是无解的，这时我们就要转换思路，我们先把A创建出来，但是还没有完成初始化操作，也就是这是一个半成品的对象，然后在赋值的时候先把A暴露出来，然后创建B，让B创建完成后找到暴露的A完成整体的实例化，这时再把B交给A完成A的后续操作，从而揭开了循环依赖的密码。也就是如下图：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/b42b8c3aa1784ad7881001044aae7910.png" alt="image.png"></p>
+<h2 id="5-4-自己解决"><a href="#5-4-自己解决" class="headerlink" title="5.4 自己解决"></a>5.4 自己解决</h2><p>  明白了上面的本质后，我们可以自己来尝试解决下：</p>
+<p>先来把上面的案例改为set/get来依赖关联</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CircularTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">CircularTest1</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCircularTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">CircularTest2</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCircularTest1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token class-name">T</span> <span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> beanClass<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
+        <span class="token comment">// 1.获取 实例对象</span>
+        <span class="token class-name">Object</span> obj <span class="token operator">=</span> beanClass<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 2.完成属性填充</span>
+        <span class="token class-name">Field</span><span class="token punctuation">[</span><span class="token punctuation">]</span> declaredFields <span class="token operator">=</span> obj<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeclaredFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 遍历处理</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Field</span> field <span class="token operator">:</span> declaredFields<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            field<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 针对private修饰</span>
+            <span class="token comment">// 获取成员变量 对应的类对象</span>
+            <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> fieldClass <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 获取对应的 beanName</span>
+            <span class="token class-name">String</span> fieldBeanName <span class="token operator">=</span> fieldClass<span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 给成员变量赋值 如果 singletonObjects 中有半成品就获取，否则创建对象</span>
+            field<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span><span class="token function">getBean</span><span class="token punctuation">(</span>fieldClass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">)</span> obj<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CircularTest1</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">CircularTest2</span> circularTest2<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CircularTest2</span> <span class="token function">getCircularTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> circularTest2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCircularTest2</span><span class="token punctuation">(</span><span class="token class-name">CircularTest2</span> circularTest2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>circularTest2 <span class="token operator">=</span> circularTest2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CircularTest2</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">CircularTest1</span> circularTest1<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CircularTest1</span> <span class="token function">getCircularTest1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> circularTest1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCircularTest1</span><span class="token punctuation">(</span><span class="token class-name">CircularTest1</span> circularTest1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>circularTest1 <span class="token operator">=</span> circularTest1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后我们再通过把对象实例化和成员变量赋值拆解开来处理。从而解决循环依赖的问题</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CircularTest</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 保存提前暴露的对象，也就是半成品的对象</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> singletonObjects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">CircularTest1</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCircularTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">CircularTest2</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCircularTest1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token class-name">T</span> <span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> beanClass<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
+        <span class="token comment">//1.获取类对象对应的名称</span>
+        <span class="token class-name">String</span> beanName <span class="token operator">=</span> beanClass<span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 2.根据名称去 singletonObjects 中查看是否有半成品的对象</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>singletonObjects<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">)</span> singletonObjects<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 3. singletonObjects 没有半成品的对象，那么就反射实例化对象</span>
+        <span class="token class-name">Object</span> obj <span class="token operator">=</span> beanClass<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 还没有完整的创建完这个对象就把这个对象存储在了 singletonObjects中</span>
+        singletonObjects<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>beanName<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 属性填充来补全对象</span>
+        <span class="token class-name">Field</span><span class="token punctuation">[</span><span class="token punctuation">]</span> declaredFields <span class="token operator">=</span> obj<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeclaredFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 遍历处理</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Field</span> field <span class="token operator">:</span> declaredFields<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            field<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 针对private修饰</span>
+            <span class="token comment">// 获取成员变量 对应的类对象</span>
+            <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> fieldClass <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 获取对应的 beanName</span>
+            <span class="token class-name">String</span> fieldBeanName <span class="token operator">=</span> fieldClass<span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 给成员变量赋值 如果 singletonObjects 中有半成品就获取，否则创建对象</span>
+            field<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span>singletonObjects<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>fieldBeanName<span class="token punctuation">)</span><span class="token operator">?</span>
+                    singletonObjects<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>fieldBeanName<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">getBean</span><span class="token punctuation">(</span>fieldClass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">)</span> obj<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CircularTest1</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">CircularTest2</span> circularTest2<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CircularTest2</span> <span class="token function">getCircularTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> circularTest2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCircularTest2</span><span class="token punctuation">(</span><span class="token class-name">CircularTest2</span> circularTest2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>circularTest2 <span class="token operator">=</span> circularTest2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CircularTest2</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">CircularTest1</span> circularTest1<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CircularTest1</span> <span class="token function">getCircularTest1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> circularTest1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCircularTest1</span><span class="token punctuation">(</span><span class="token class-name">CircularTest1</span> circularTest1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>circularTest1 <span class="token operator">=</span> circularTest1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行程序你会发现问题完美的解决了</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/63135dba531b45938dfbc9d69ecc6301.png" alt="image.png"></p>
+<p>  在上面的方法中的核心是getBean方法，Test1 创建后填充属性时依赖Test2，那么就去创建 Test2，在创建 Test2 开始填充时发现依赖于 Test1，但此时 Test1 这个半成品对象已经存放在缓存到 <code>singletonObjects</code> 中了，所以Test2可以正常创建，在通过递归把 Test1 也创建完整了。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/2c97505674514ed28a774477c51e0f0b.png" alt="image.png"></p>
+<p>最后总结下该案例解决的本质：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/09f7cb069e58480fa37c8c5ac0dd8467.png" alt="image.png"></p>
+<h2 id="5-5-Spring循环依赖"><a href="#5-5-Spring循环依赖" class="headerlink" title="5.5 Spring循环依赖"></a>5.5 Spring循环依赖</h2><p>针对Spring中Bean对象的各种场景。支持的方案不一样：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1462/1646114654000/258d647b589345ba854ca8e6db50ba75.png" alt="image.png"></p>
+<p>  然后我们再来看看Spring中是如何解决循环依赖问题的呢？刚刚上面的案例中的对象的生命周期的核心就两个</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/f297c4657bfa4318bb1db866ad960848.png" alt="image.png"></p>
+<p>  而Spring创建Bean的生命周期中涉及到的方法就很多了。下面是简单列举了对应的方法</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/51bfe454457c459b8edabde7a40318b5.png" alt="image.png"></p>
+<p>  基于前面案例的了解，我们知道肯定需要在调用构造方法方法创建完成后再暴露对象，在Spring中提供了三级缓存来处理这个事情，对应的处理节点如下图：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/d4394ca79d9a4dea87ebb7c461d7485b.png" alt="image.png"></p>
+<p>对应到源码中具体处理循环依赖的流程如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/33568ba20781477eafed5c790a44212a.png" alt="image.png"></p>
+<p>  上面就是在Spring的生命周期方法中和循环依赖出现相关的流程了。那么源码中的具体处理是怎么样的呢？我们继续往下面看。</p>
+<p>首先在调用构造方法的后会放入到三级缓存中</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/8fe6a991c479455fb588e4246de9709d.png" alt="image.png"></p>
+<p>下面就是放入三级缓存的逻辑</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">addSingletonFactory</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">,</span> <span class="token class-name">ObjectFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> singletonFactory<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">notNull</span><span class="token punctuation">(</span>singletonFactory<span class="token punctuation">,</span> <span class="token string">"Singleton factory must not be null"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// 使用singletonObjects进行加锁，保证线程安全</span>
+	<span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 如果单例对象的高速缓存【beam名称-bean实例】没有beanName的对象</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token comment">// 将beanName,singletonFactory放到单例工厂的缓存【bean名称 - ObjectFactory】</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>singletonFactories<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>beanName<span class="token punctuation">,</span> singletonFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token comment">// 从早期单例对象的高速缓存【bean名称-bean实例】 移除beanName的相关缓存对象</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>earlySingletonObjects<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token comment">// 将beanName添加已注册的单例集中</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>registeredSingletons<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后在填充属性的时候会存入二级缓存中</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">earlySingletonObjects<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>beanName<span class="token punctuation">,</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+registeredSingletons<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>最后把创建的对象保存在了一级缓存中</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">addSingleton</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">,</span> <span class="token class-name">Object</span> singletonObject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 将映射关系添加到单例对象的高速缓存中</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>beanName<span class="token punctuation">,</span> singletonObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 移除beanName在单例工厂缓存中的数据</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>singletonFactories<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 移除beanName在早期单例对象的高速缓存的数据</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>earlySingletonObjects<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 将beanName添加到已注册的单例集中</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>registeredSingletons<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-6-疑问点"><a href="#5-6-疑问点" class="headerlink" title="5.6 疑问点"></a>5.6 疑问点</h2><p>这些疑问点也是面试官喜欢问的问题点</p>
+<h3 id="为什么需要三级缓存"><a href="#为什么需要三级缓存" class="headerlink" title="为什么需要三级缓存"></a>为什么需要三级缓存</h3><p>三级缓存主要处理的是AOP的代理对象，存储的是一个ObjectFactory</p>
+<p>三级缓存考虑的是带你对象，而二级缓存考虑的是性能-从三级缓存的工厂里创建出对象，再扔到二级缓存（这样就不用每次都要从工厂里拿）</p>
+<h3 id="没有三级环境能解决吗？"><a href="#没有三级环境能解决吗？" class="headerlink" title="没有三级环境能解决吗？"></a>没有三级环境能解决吗？</h3><p>没有三级缓存是可以解决循环依赖问题的</p>
+<h3 id="三级缓存分别什么作用"><a href="#三级缓存分别什么作用" class="headerlink" title="三级缓存分别什么作用"></a>三级缓存分别什么作用</h3><p>一级缓存：正式对象</p>
+<p>二级缓存：半成品对象</p>
+<p>三级缓存：工厂</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/99f0bb5b710a49f6b9ebd53a173118a5.png" alt="image.png"></p>
+<h1 id="6-Spring的生命周期"><a href="#6-Spring的生命周期" class="headerlink" title="6.Spring的生命周期"></a>6.Spring的生命周期</h1><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/1462/1646114654000/cf1072694ce9496aa04c3c6fde40c38a.png" alt="image.png"></p>
+<p>结合图，把Bean对象在Spring中的关键节点介绍一遍</p>
+<h1 id="7-Spring中支持几种作用域"><a href="#7-Spring中支持几种作用域" class="headerlink" title="7.Spring中支持几种作用域"></a>7.Spring中支持几种作用域</h1><p>Spring容器中的bean可以分为5个范围：</p>
+<ol>
+<li>prototype：为每一个bean请求提供一个实例。</li>
+<li>singleton：默认，每个容器中只有一个bean的实例，单例的模式由BeanFactory自身来维护。</li>
+<li>request：为每一个网络请求创建一个实例，在请求完成以后，bean会失效并被垃圾回收器回收。</li>
+<li>session：与request范围类似，确保每个session中有一个bean的实例，在session过期后，bean会随之失效。</li>
+<li>global-session：全局作用域，global-session和Portlet应用相关。当你的应用部署在Portlet容器中工作时，它包含很多portlet。如果你想要声明让所有的portlet共用全局的存储变量的话，那么这全局变量需要存储在global-session中。全局作用域与Servlet中的session作用域效果相同。</li>
+</ol>
+<h1 id="8-说说事务的隔离级别"><a href="#8-说说事务的隔离级别" class="headerlink" title="8.说说事务的隔离级别"></a>8.说说事务的隔离级别</h1><p>  事务隔离级别指的是一个事务对数据的修改与另一个并行的事务的隔离程度，当多个事务同时访问相同数据时，如果没有采取必要的隔离机制，就可能发生以下问题：</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>脏读</td>
+<td align="left">一个事务读到另一个事务未提交的更新数据，所谓脏读，就是指事务A读到了事务B还没有提交的数据，比如银行取钱，事务A开启事务，此时切换到事务B，事务B开启事务–&gt;取走100元，此时切换回事务A，事务A读取的肯定是数据库里面的原始数据，因为事务B取走了100块钱，并没有提交，数据库里面的账务余额肯定还是原始余额，这就是脏读</td>
+</tr>
+<tr>
+<td>幻读</td>
+<td align="left">是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。 同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象 发生了幻觉一样。</td>
+</tr>
+<tr>
+<td>不可重复读</td>
+<td align="left">在一个事务里面的操作中发现了未被操作的数据 比方说在同一个事务中先后执行两条一模一样的select语句，期间在此次事务中没有执行过任何DDL语句，但先后得到的结果不一致，这就是不可重复读</td>
+</tr>
+</tbody></table>
+<p><strong>Spring支持的隔离级别</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">隔离级别</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DEFAULT</td>
+<td align="left">使用数据库本身使用的隔离级别 <code>&lt;br&gt;</code> ORACLE（读已提交） MySQL（可重复读）</td>
+</tr>
+<tr>
+<td align="left">READ_UNCOMITTED</td>
+<td align="left">读未提交（脏读）最低的隔离级别，一切皆有可能。</td>
+</tr>
+<tr>
+<td align="left">READ_COMMITED</td>
+<td align="left">读已提交，ORACLE默认隔离级别，有幻读以及不可重复读风险。</td>
+</tr>
+<tr>
+<td align="left">REPEATABLE_READ</td>
+<td align="left">可重复读，解决不可重复读的隔离级别，但还是有幻读风险。</td>
+</tr>
+<tr>
+<td align="left">SERLALIZABLE</td>
+<td align="left">串行化，最高的事务隔离级别，不管多少事务，挨个运行完一个事务的所有子事务之后才可以执行另外一个事务里面的所有子事务，这样就解决了脏读、不可重复读和幻读的问题了</td>
+</tr>
+</tbody></table>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/20190703000608167.png" alt="在这里插入图片描述"></p>
+<p>  再必须强调一遍，不是事务隔离级别设置得越高越好，事务隔离级别设置得越高，意味着势必要花手段去加锁用以保证事务的正确性，那么效率就要降低，因此实际开发中往往要在效率和并发正确性之间做一个取舍，一般情况下会设置为READ_COMMITED，此时避免了脏读，并发性也还不错，之后再通过一些别的手段去解决不可重复读和幻读的问题就好了。</p>
+<h1 id="9-事务的传播行为"><a href="#9-事务的传播行为" class="headerlink" title="9.事务的传播行为"></a>9.事务的传播行为</h1><p>保证事务：ACID</p>
+<p>事务的传播行为针对的是嵌套的关系</p>
+<p>Spring中的7个事务传播行为:</p>
+<table>
+<thead>
+<tr>
+<th align="left">事务行为</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PROPAGATION_REQUIRED</td>
+<td align="left">支持当前事务，假设当前没有事务。就新建一个事务</td>
+</tr>
+<tr>
+<td align="left">PROPAGATION_SUPPORTS</td>
+<td align="left">支持当前事务，假设当前没有事务，就以非事务方式运行</td>
+</tr>
+<tr>
+<td align="left">PROPAGATION_MANDATORY</td>
+<td align="left">支持当前事务，假设当前没有事务，就抛出异常</td>
+</tr>
+<tr>
+<td align="left">PROPAGATION_REQUIRES_NEW</td>
+<td align="left">新建事务，假设当前存在事务。把当前事务挂起</td>
+</tr>
+<tr>
+<td align="left">PROPAGATION_NOT_SUPPORTED</td>
+<td align="left">以非事务方式运行操作。假设当前存在事务，就把当前事务挂起</td>
+</tr>
+<tr>
+<td align="left">PROPAGATION_NEVER</td>
+<td align="left">以非事务方式运行，假设当前存在事务，则抛出异常</td>
+</tr>
+<tr>
+<td align="left">PROPAGATION_NESTED</td>
+<td align="left">如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。</td>
+</tr>
+</tbody></table>
+<p><strong>举例说明</strong></p>
+<p><strong>案例代码</strong></p>
+<p>ServiceA</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ServiceA</span> <span class="token punctuation">{</span>   
+     <span class="token keyword">void</span> <span class="token function">methodA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">ServiceB</span><span class="token punctuation">.</span><span class="token function">methodB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ServiceB</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ServiceB</span> <span class="token punctuation">{</span> 
+     <span class="token keyword">void</span> <span class="token function">methodB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-PROPAGATION-REQUIRED"><a href="#1-PROPAGATION-REQUIRED" class="headerlink" title="1.PROPAGATION_REQUIRED"></a>1.PROPAGATION_REQUIRED</h3><p>  假如当前正要运行的事务不在另外一个事务里，那么就起一个新的事务 比方说，ServiceB.methodB的事务级别定义PROPAGATION_REQUIRED, 那么因为执行ServiceA.methodA的时候，ServiceA.methodA已经起了事务。这时调用ServiceB.methodB，ServiceB.methodB看到自己已经执行在ServiceA.methodA的事务内部。就不再起新的事务。而假如ServiceA.methodA执行的时候发现自己没有在事务中，他就会为自己分配一个事务。这样，在ServiceA.methodA或者在ServiceB.methodB内的不论什么地方出现异常。事务都会被回滚。即使ServiceB.methodB的事务已经被提交，可是ServiceA.methodA在接下来fail要回滚，ServiceB.methodB也要回滚<br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/20190223225404935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NTI2NTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-PROPAGATION-SUPPORTS"><a href="#2-PROPAGATION-SUPPORTS" class="headerlink" title="2.PROPAGATION_SUPPORTS"></a>2.PROPAGATION_SUPPORTS</h3><p>  假设当前在事务中。即以事务的形式执行。假设当前不在一个事务中，那么就以非事务的形式执行</p>
+<h3 id="3PROPAGATION-MANDATORY"><a href="#3PROPAGATION-MANDATORY" class="headerlink" title="3PROPAGATION_MANDATORY"></a>3PROPAGATION_MANDATORY</h3><p>  必须在一个事务中执行。也就是说，他仅仅能被一个父事务调用。否则，他就要抛出异常</p>
+<h3 id="4-PROPAGATION-REQUIRES-NEW"><a href="#4-PROPAGATION-REQUIRES-NEW" class="headerlink" title="4.PROPAGATION_REQUIRES_NEW"></a>4.PROPAGATION_REQUIRES_NEW</h3><p>  这个就比较绕口了。 比方我们设计ServiceA.methodA的事务级别为PROPAGATION_REQUIRED，ServiceB.methodB的事务级别为PROPAGATION_REQUIRES_NEW。那么当运行到ServiceB.methodB的时候，ServiceA.methodA所在的事务就会挂起。ServiceB.methodB会起一个新的事务。等待ServiceB.methodB的事务完毕以后，他才继续运行。<br>他与PROPAGATION_REQUIRED 的事务差别在于事务的回滚程度了。由于ServiceB.methodB是新起一个事务，那么就是存在两个不同的事务。假设ServiceB.methodB已经提交，那么ServiceA.methodA失败回滚。ServiceB.methodB是不会回滚的。假设ServiceB.methodB失败回滚，假设他抛出的异常被ServiceA.methodA捕获，ServiceA.methodA事务仍然可能提交。<br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/20190223230140433.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NTI2NTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="5-PROPAGATION-NOT-SUPPORTED"><a href="#5-PROPAGATION-NOT-SUPPORTED" class="headerlink" title="5.PROPAGATION_NOT_SUPPORTED"></a>5.PROPAGATION_NOT_SUPPORTED</h3><p>  当前不支持事务。比方ServiceA.methodA的事务级别是PROPAGATION_REQUIRED 。而ServiceB.methodB的事务级别是PROPAGATION_NOT_SUPPORTED ，那么当执行到ServiceB.methodB时。ServiceA.methodA的事务挂起。而他以非事务的状态执行完，再继续ServiceA.methodA的事务。</p>
+<h3 id="6-PROPAGATION-NEVER"><a href="#6-PROPAGATION-NEVER" class="headerlink" title="6.PROPAGATION_NEVER"></a>6.PROPAGATION_NEVER</h3><p>  不能在事务中执行。<br>如果ServiceA.methodA的事务级别是PROPAGATION_REQUIRED。 而ServiceB.methodB的事务级别是PROPAGATION_NEVER ，那么ServiceB.methodB就要抛出异常了。</p>
+<h3 id="7-PROPAGATION-NESTED"><a href="#7-PROPAGATION-NESTED" class="headerlink" title="7.PROPAGATION_NESTED"></a>7.PROPAGATION_NESTED</h3><p>  如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。</p>
+<h1 id="10-Spring事务实现的方式"><a href="#10-Spring事务实现的方式" class="headerlink" title="10.Spring事务实现的方式"></a>10.Spring事务实现的方式</h1><p><strong>编程式事务管理</strong>：这意味着你可以通过编程的方式管理事务，这种方式带来了很大的灵活性，但很难维护。</p>
+<p><strong>声明式事务管理</strong>：这种方式意味着你可以将事务管理和业务代码分离。你只需要通过注解或者XML配置管理事务。</p>
+<h1 id="11-事务注解的本质是什么"><a href="#11-事务注解的本质是什么" class="headerlink" title="11.事务注解的本质是什么"></a>11.事务注解的本质是什么</h1><p>  @Transactional 这个注解仅仅是一些（和事务相关的）元数据，在运行时被事务基础设施读取消费，并使用这些元数据来配置bean的事务行为。 大致来说具有两方面功能，一是表明该方法要参与事务，二是配置相关属性来定制事务的参与方式和运行行为</p>
+<p>  声明式事务主要是得益于Spring AOP。使用一个事务拦截器，在方法调用的前后/周围进行事务性增强（advice），来驱动事务完成。</p>
+<p>  @Transactional注解既可以标注在类上，也可以标注在方法上。当在类上时，默认应用到类里的所有方法。如果此时方法上也标注了，则方法上的优先级高。 另外注意方法一定要是public的。</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.fynote.com/share/d/IVeyV0Jp">https://cloud.fynote.com/share/d/IVeyV0Jp</a></p>
+<h1 id="12-谈谈你对BeanFactory和ApplicationContext的理解"><a href="#12-谈谈你对BeanFactory和ApplicationContext的理解" class="headerlink" title="12.谈谈你对BeanFactory和ApplicationContext的理解"></a>12.谈谈你对BeanFactory和ApplicationContext的理解</h1><p>目的：考察对IoC的理解</p>
+<p>BeanFactory:Bean工厂 ==》IoC容器</p>
+<p>BeanDefinition ===》Bean定义</p>
+<p>BeanDefinitionRegistry ==》 BeanDefinition 和 BeanFactory的关联</p>
+<p>….</p>
+<p>ApplicationContext:应用上下文</p>
+<p>ApplicationContext ac = new ClasspathXmlApplicationContext(xxx.xml);</p>
+<h1 id="13-谈谈你对BeanFactoryPostProcessor的理解"><a href="#13-谈谈你对BeanFactoryPostProcessor的理解" class="headerlink" title="13.谈谈你对BeanFactoryPostProcessor的理解"></a>13.谈谈你对BeanFactoryPostProcessor的理解</h1><p>BeanFactoryPostProcessor:是在BeanFactory创建完成后的后置处理</p>
+<p>BeanFactory：对外提供Bean对象</p>
+<p>需要知道怎么提供Bean对象–&gt;BeanDefinition</p>
+<p>XML/注解 –》 BeanDefinition –》注册 –》完成BeanFactory的处理</p>
+<p>1.需要交代BeanFactoryPostProcessor的作用</p>
+<p>2.举个例子</p>
+<p>@Configuration 注解 –》 Java被 @Configuration注解标识–&gt; 这是一个Java配置类</p>
+<p>@Configuration–》@Component –&gt;BeanDefinition –&gt; 存储在BeanFactory中  是当做一个普通的Bean管理的</p>
+<p>@Bean  @Primary 。。。。</p>
+<p>ConfigurationClassPostProcessor</p>
+<h1 id="14-谈谈你对BeanPostProcessor的理解"><a href="#14-谈谈你对BeanPostProcessor的理解" class="headerlink" title="14.谈谈你对BeanPostProcessor的理解"></a>14.谈谈你对BeanPostProcessor的理解</h1><p>针对Bean对象初始化前后。 针对Bean对象创建之后的处理操作。</p>
+<p>SpringIoC 核心流程</p>
+<p>BeanDefinition –&gt; 注册BeanDefinition –&gt;BeanFactory –》BeanFactory的后置处理 –&gt; 单例bean –&gt;  AOP  –》 代理对象 —&gt; advice pointcut join point 。。。</p>
+<p>BeanPostProcessor 提供了一种扩展机制</p>
+<p>自定义接口的实现 –》 <strong>注册</strong>到BeanFactory的 Map中</p>
+<p>BeanDefinition –&gt; 注册BeanDefinition –&gt;BeanFactory –》BeanFactory的后置处理 –&gt; 单例bean –&gt;</p>
+<p>遍历上面的Map 执行相关的行为 –&gt; 。。。。。</p>
+<p>===》 AOP</p>
+<p>IoC 和AOP的关系</p>
+<p>有了IoC 才有 AOP  DI</p>
+<h1 id="15-谈谈你对SpringMVC的理解"><a href="#15-谈谈你对SpringMVC的理解" class="headerlink" title="15.谈谈你对SpringMVC的理解"></a>15.谈谈你对SpringMVC的理解</h1><p>控制框架：前端控制器–》Servlet –》Web容器【Tomcat】</p>
+<p>SpringMVC和Spring的关系  IoC容器关系–》父子关系</p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/view/link/63dc99aba7d181715d1f4569">https://www.processon.com/view/link/63dc99aba7d181715d1f4569</a></p>
+<p>Spring和SpringMVC的关系理解</p>
+<p>Spring和SpringMVC整合的项目中</p>
+<p>Controller  Service Dao</p>
+<p>具体的有两个容器Spring中的IoC容器。然后SpringMVC中也有一个IoC容器</p>
+<p>Controller中定义的实例都是SpringMVC组件维护的</p>
+<p>Service和Dao中的实例都是由Spring的IoC容器维护的</p>
+<p>这两个容器有一个父子容器的关系</p>
+<p>Spring容器是SpringMVC容器的父容器</p>
+<h1 id="16-谈谈你对DelegatingFilterProxy的理解"><a href="#16-谈谈你对DelegatingFilterProxy的理解" class="headerlink" title="16.谈谈你对DelegatingFilterProxy的理解"></a>16.谈谈你对DelegatingFilterProxy的理解</h1><p>web.xml</p>
+<p>Shiro SpringSecurity</p>
+<p>Spring整合的第三方的组件会非常多</p>
+<p>JWT  单独登录  OAuth2.0</p>
+<p>组件：组合起来的零件–》组件  组合起来的技术栈–》组件框架</p>
+<h1 id="17-谈谈你对SpringBoot的理解"><a href="#17-谈谈你对SpringBoot的理解" class="headerlink" title="17.谈谈你对SpringBoot的理解"></a>17.谈谈你对SpringBoot的理解</h1><p>约定由于配置</p>
+<p>自动装配</p>
+<p>SpringBoot和Spring的关系</p>
+<p>SpringBoot的初始化 –&gt; IoC Spring的初始化</p>
+<p>SpringBoot的启动 –&gt; IoC</p>
+<p>@SpringApplication注解 –&gt; @Configuration –&gt;ConfigurationClassPostProcessor –》 @Import注解 –》 延迟加载 –》 自动装配 –&gt; SPI  去重 排除 过滤</p>
+<p>spring.factories</p>
+<p>SSM框架的整合</p>
+<p>1。导入依赖</p>
+<p>2。添加配置文件</p>
+<p>3。设置配置文件 web.xml</p>
+<h1 id="18-介绍下Import注解的理解"><a href="#18-介绍下Import注解的理解" class="headerlink" title="18.介绍下Import注解的理解"></a>18.介绍下Import注解的理解</h1><p>@Import注解是在Spring3.0的时候提供。目的是为了替换在XML配置文件中的import标签。</p>
+<p>@Import注解除了可以导入第三方的Java配置类还扩展了其他的功能</p>
+<ol>
+<li>可以把某个类型的对象注入到容器中</li>
+<li>导入的类型如果实现了ImportSelector接口。那么会调用接口中声明的方法。然后把方法返回的类型全类路径的类型对象注入到容器中</li>
+<li>如果导入的类型实现了ImportBeanDefinitionRegistrar这个接口。那么就会调用声明的方法在该方法中显示的提供注册器来完成注入</li>
+</ol>
+<h1 id="19-SpringBoot自动装配中为什么用DeferredImportSelector"><a href="#19-SpringBoot自动装配中为什么用DeferredImportSelector" class="headerlink" title="19.SpringBoot自动装配中为什么用DeferredImportSelector"></a>19.SpringBoot自动装配中为什么用DeferredImportSelector</h1><p>在SpringBoot自动装配中核心是会加载所有依赖中的META-INF/spring.factories文件中的配置信息。</p>
+<p>我们可以有多个需要加载的spring.factories文件。那么我们就需要多次操作。我们可以考虑把所有的信息都加载后再统一把这些需要注入到容器中的内容注入进去</p>
+<p>DeferredImportSelector：延迟注入Bean实例的作用</p>
+<h1 id="20-SpringBoot中有了属性文件为什么还要加一个bootstrap-yml文件"><a href="#20-SpringBoot中有了属性文件为什么还要加一个bootstrap-yml文件" class="headerlink" title="20.SpringBoot中有了属性文件为什么还要加一个bootstrap.yml文件?"></a>20.SpringBoot中有了属性文件为什么还要加一个bootstrap.yml文件?</h1><p>  在单体的SpringBoot项目中其实我们是用不到bootstrap.yml文件的，bootsrap.yml文件的使用需要SpringCloud的支持，因为在微服务环境下我们都是有配置中心的，来统一的管理系统的相关配置属性，那么怎么去加载配置中心的内容呢？一个SpringBoot项目启动的时候默认只会加载对应的application.yml中的相关信息，这时bootstrap.yml的作用就体现出来了，会在SpringBoot正常启动前创建一个父容器来通过bootstrap.yml中的配置来加载配置中心的内容。</p>
+<h1 id="21-如果要对属性文件中的账号密码加密如何实现？"><a href="#21-如果要对属性文件中的账号密码加密如何实现？" class="headerlink" title="21.如果要对属性文件中的账号密码加密如何实现？"></a>21.如果要对属性文件中的账号密码加密如何实现？</h1><p>  其实这是一个比较篇实战的一个问题，我们在application.yml中保存的MySQL数据库的账号密码或者其他服务的账号密码，都可以保存加密后的内容，那么我们在处理的时候要怎么解密呢？这个其实比较简单只需要对SpringBoot的执行流程清楚就可以了，第一个我们可以通过自定义监听器可以在加载解析了配置文件之后对加密的文件中做解密处理同时覆盖之前加密的内容，或者通过对应的后置处理器来处理，具体的实现如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/457ab5a2fd124ff988e10b2af6209811.png" alt="在这里插入图片描述"></p>
+<p>然后我们通过案例代码来演示下，加深大家的理解<br>首先我们在属性文件中配置加密后的信息</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">spring.datasource.driverClassName</span><span class="token punctuation">=</span><span class="token attr-value">com.mysql.cj.jdbc.Driver</span>
+<span class="token attr-name">spring.datasource.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/mb?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</span>
+<span class="token attr-name">spring.datasource.username</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
+<span class="token comment"># 对通过3DES对密码加密</span>
+<span class="token attr-name">spring.datasource.password</span><span class="token punctuation">=</span><span class="token attr-value">t5Jd2CzFWEw=</span>
+
+<span class="token attr-name">spring.datasource.type</span><span class="token punctuation">=</span><span class="token attr-value">com.alibaba.druid.pool.DruidDataSource</span>
+
+<span class="token attr-name">mybatis.mapper-locations</span><span class="token punctuation">=</span><span class="token attr-value">classpath:mapper/*.xml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  在SpringBoot项目启动的时候在在刷新Spring容器之前执行的，所以我们要做的就是在加载完环境配置信息后，获取到配置的 <code>spring.datasource.password=t5Jd2CzFWEw=</code> 这个信息，然后解密并修改覆盖就可以了。<br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/56ead524284e4317b40700fa7170e7b9.png" alt="在这里插入图片描述">  然后在属性文件的逻辑其实是通过发布事件触发对应的监听器来实现的<br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/795454a61a254cb388b86b308f0b89e3.png" alt="在这里插入图片描述"><br>  所以第一个解决方案就是你自定义一个监听器，这个监听器在加载属性文件(ConfigFileApplicationListener)的监听器之后处理,这种方式稍微麻烦点，<br>  还有一种方式就是通过加载属性文件的一个后置处理器来处理，这就以个为例来实现</p>
+<p>3DES的工具类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 3DES加密算法，主要用于加密用户id，身份证号等敏感信息,防止破解
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DESedeUtil</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">//秘钥</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span>  KEY <span class="token operator">=</span> <span class="token string">"~@#$y1a2n.&amp;@+n@$%*(1)"</span><span class="token punctuation">;</span>
+    <span class="token comment">//秘钥长度</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> secretKeyLength <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>
+    <span class="token comment">//加密算法</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span>  ALGORITHM <span class="token operator">=</span> <span class="token string">"DESede"</span><span class="token punctuation">;</span>
+    <span class="token comment">//编码</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> CHARSET <span class="token operator">=</span> <span class="token string">"UTF-8"</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 转换成十六进制字符串
+     * @param key
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">getHex</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> secretKeyByte <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token number">24</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> hexByte<span class="token punctuation">;</span>
+            hexByte <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token class-name">DigestUtils</span><span class="token punctuation">.</span><span class="token function">md5Hex</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span>CHARSET<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//秘钥长度固定为24位</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">arraycopy</span><span class="token punctuation">(</span>hexByte<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>secretKeyByte<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>secretKeyLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">UnsupportedEncodingException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> secretKeyByte<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 生成密钥，返回加密串
+     * @param key 密钥
+     * @param encodeStr 将加密的字符串
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span>  <span class="token function">encode3DES</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">,</span><span class="token class-name">String</span> encodeStr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Cipher</span> cipher <span class="token operator">=</span> <span class="token class-name">Cipher</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>ALGORITHM<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cipher<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">Cipher</span><span class="token punctuation">.</span>ENCRYPT_MODE<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">SecretKeySpec</span><span class="token punctuation">(</span><span class="token function">getHex</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">,</span> ALGORITHM<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token class-name">Base64</span><span class="token punctuation">.</span><span class="token function">encodeBase64String</span><span class="token punctuation">(</span>cipher<span class="token punctuation">.</span><span class="token function">doFinal</span><span class="token punctuation">(</span>encodeStr<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span>CHARSET<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+     * 生成密钥,解密，并返回字符串
+     * @param key 密钥
+     * @param decodeStr 需要解密的字符串
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">decode3DES</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">,</span> <span class="token class-name">String</span> decodeStr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Cipher</span> cipher <span class="token operator">=</span> <span class="token class-name">Cipher</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>ALGORITHM<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cipher<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">Cipher</span><span class="token punctuation">.</span>DECRYPT_MODE<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">SecretKeySpec</span><span class="token punctuation">(</span><span class="token function">getHex</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">,</span>ALGORITHM<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cipher<span class="token punctuation">.</span><span class="token function">doFinal</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Base64</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>decodeStr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>CHARSET<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> userId <span class="token operator">=</span> <span class="token string">"123456"</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> encode <span class="token operator">=</span> <span class="token class-name">DESedeUtil</span><span class="token punctuation">.</span><span class="token function">encode3DES</span><span class="token punctuation">(</span>KEY<span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> decode <span class="token operator">=</span> <span class="token class-name">DESedeUtil</span><span class="token punctuation">.</span><span class="token function">decode3DES</span><span class="token punctuation">(</span>KEY<span class="token punctuation">,</span> encode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"用户id&gt;&gt;&gt;"</span><span class="token operator">+</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"用户id加密&gt;&gt;&gt;"</span><span class="token operator">+</span>encode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"用户id解密&gt;&gt;&gt;"</span><span class="token operator">+</span>decode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>声明后置处理器</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SafetyEncryptProcessor</span> <span class="token keyword">implements</span> <span class="token class-name">EnvironmentPostProcessor</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">postProcessEnvironment</span><span class="token punctuation">(</span><span class="token class-name">ConfigurableEnvironment</span> environment<span class="token punctuation">,</span> <span class="token class-name">SpringApplication</span> application<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">PropertySource</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> propertySource <span class="token operator">:</span> environment<span class="token punctuation">.</span><span class="token function">getPropertySources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"propertySource = "</span> <span class="token operator">+</span> propertySource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>propertySource <span class="token keyword">instanceof</span> <span class="token class-name">OriginTrackedMapPropertySource</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token class-name">OriginTrackedMapPropertySource</span> source <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">OriginTrackedMapPropertySource</span><span class="token punctuation">)</span> propertySource<span class="token punctuation">;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> propertyName <span class="token operator">:</span> source<span class="token punctuation">.</span><span class="token function">getPropertyNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//System.out.println(propertyName + "=" + source.getProperty(propertyName));</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">"spring.datasource.password"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>propertyName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token comment">// 做解密处理</span>
+                        <span class="token class-name">String</span> property <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> source<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span>propertyName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token class-name">DESedeUtil</span><span class="token punctuation">.</span><span class="token function">decode3DES</span><span class="token punctuation">(</span><span class="token class-name">DESedeUtil</span><span class="token punctuation">.</span>KEY<span class="token punctuation">,</span> property<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"密文："</span> <span class="token operator">+</span> property<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"解密后的："</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>propertyName<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                        <span class="token comment">// 注意要添加到前面，覆盖</span>
+                        environment<span class="token punctuation">.</span><span class="token function">getPropertySources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MapPropertySource</span><span class="token punctuation">(</span>propertyName<span class="token punctuation">,</span>map<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后在META-INF/spring.factories文件中注册</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">org.springframework.boot.env.EnvironmentPostProcessor</span><span class="token punctuation">=</span><span class="token attr-value">com.bobo.util.SafetyEncryptProcessor</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后启动项目就可以了<br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img-blog.csdnimg.cn/970447b8998445abb81d6b9b407bde6b.png" alt="在这里插入图片描述"></p>
+<p>  搞定</p>
+<h1 id="22-谈谈Indexed注解的作用"><a href="#22-谈谈Indexed注解的作用" class="headerlink" title="22.谈谈Indexed注解的作用"></a>22.谈谈Indexed注解的作用</h1><p>@Indexed注解是Spring5.0提供</p>
+<p>Indexed注解解决的问题：是随着项目越来越复杂那么@ComponentScan需要扫描加载的Class会越来越多。在系统启动的时候会造成性能损耗。所以Indexed注解的作用其实就是提升系统启动的性能。</p>
+<p>在系统编译的时候那么会收集所有被@Indexed注解标识的Java类。然后记录在META-INF/spring.components文件中。那么系统启动的时候就只需要读取一个该文件中的内容就不用在遍历所有的目录了。提升的效率</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1462/1646114654000/bbb5205d8dec4316b38c08840aca7984.png" alt="image.png"></p>
+<h1 id="23-Component-Controller-Repository-Service-有何区别？"><a href="#23-Component-Controller-Repository-Service-有何区别？" class="headerlink" title="23.@Component, @Controller, @Repository,@Service 有何区别？"></a>23.@Component, @Controller, @Repository,@Service 有何区别？</h1><p>@Component ：这将 java 类标记为 bean。它是任何 Spring 管理组件的通用构造型。spring 的组件扫描机制现在可以将其拾取并将其拉入应用程序环境中。</p>
+<p>@Controller ：这将一个类标记为 Spring Web MVC 控制器。标有它的Bean 会自动导入到 IoC 容器中。</p>
+<p>@Service ：此注解是组件注解的特化。它不会对 @Component 注解提供任何其他行为。您可以在服务层类中使用@Service 而不是 @Component，因为它以更好的方式指定了意图。</p>
+<p>@Repository ：这个注解是具有类似用途和功能的 @Component 注解的特化。它为 DAO 提供了额外的好处。它将 DAO 导入 IoC 容器，并使未经检查的异常有资格转换为 Spring DataAccessException。</p>
+<h1 id="24-有哪些通知类型-Advice"><a href="#24-有哪些通知类型-Advice" class="headerlink" title="24.有哪些通知类型(Advice)"></a>24.有哪些通知类型(Advice)</h1><p>前置通知：Before - 这些类型的 Advice 在 joinpoint 方法之前执行，并使用@Before 注解标记进行配置。<br>后置通知：After Returning - 这些类型的 Advice 在连接点方法正常执行后执行，并使用@AfterReturning 注解标记进行配置。<br>异常通知：After Throwing - 这些类型的 Advice 仅在 joinpoint 方法通过抛出异常退出并使用 @AfterThrowing 注解标记配置时执行。<br>最终通知：After (finally) - 这些类型的 Advice 在连接点方法之后执行，无论方法退出是正常还是异常返回，并使用 @After 注解标记进行配置。<br>环绕通知：Around - 这些类型的 Advice 在连接点之前和之后执行，并使用@Around 注解标记进行配置。</p>
+<h1 id="25-什么是-Spring-的依赖注入？"><a href="#25-什么是-Spring-的依赖注入？" class="headerlink" title="25.什么是 Spring 的依赖注入？"></a>25.什么是 Spring 的依赖注入？</h1><p>依赖注入，是 IOC 的一个方面，是个通常的概念，它有多种解释。这概念是说你不用创建对象，而只需要描述它如何被创建。你不在代码里直接组装你的组件和服务，但是要在配置文件里描述哪些组件需要哪些服务，之后一个容器（IOC 容器）负责把他们组装起来。</p>
+<p>BeanFactory</p>
+<p>BeanDefinition</p>
+<p>BeanDefinitionRegistry</p>
+<p>ApplicationContext</p>
+<p>–&gt; DI</p>
+<p>–&gt; AOP</p>
+<p>–&gt;事务。日志</p>
+<h1 id="26-Spring-框架中的单例-bean-是线程安全的吗"><a href="#26-Spring-框架中的单例-bean-是线程安全的吗" class="headerlink" title="26.Spring 框架中的单例 bean 是线程安全的吗?"></a>26.Spring 框架中的单例 bean 是线程安全的吗?</h1><p>不，Spring 框架中的单例 bean 不是线程安全的。</p>
+<p>Spring容器中的Bean是否线程安全，容器本身并没有提供Bean的线程安全策略，因此可以说Spring容器中的Bean本身不具备线程安全的特性，但是具体还是要结合具体scope的Bean去研究。</p>
+<p>Spring 的 bean 作用域（scope）类型<br>　　1、singleton:单例，默认作用域。</p>
+<p>　　2、prototype:原型，每次创建一个新对象。</p>
+<p>　　3、request:请求，每次Http请求创建一个新对象，适用于WebApplicationContext环境下。</p>
+<p>　　4、session:会话，同一个会话共享一个实例，不同会话使用不用的实例。</p>
+<p>　　5、global-session:全局会话，所有会话共享一个实例。</p>
+<p>线程安全这个问题，要从单例与原型Bean分别进行说明。</p>
+<p><strong>原型Bean</strong><br>　　对于原型Bean,每次创建一个新对象，也就是线程之间并不存在Bean共享，自然是不会有线程安全的问题。</p>
+<p><strong>单例Bean</strong><br>　　对于单例Bean,所有线程都共享一个单例实例Bean，因此是存在资源的竞争。</p>
+<p>　　如果单例Bean是一个<strong>无状态Bean</strong>，也就是线程中的操作不会对Bean的成员执行<strong>查询</strong>以外的操作，那么这个单例Bean是线程安全的。比如Spring mvc 的 Controller、Service、Dao等，这些Bean大多是无状态的，只关注于方法本身。</p>
+<p><strong>spring单例，为什么controller、service和dao确能保证线程安全？</strong></p>
+<p>　　Spring中的Bean默认是单例模式的，框架并没有对bean进行多线程的封装处理。<br>　　实际上大部分时间Bean是无状态的（比如Dao） 所以说在某种程度上来说Bean其实是安全的。<br>　　但是如果Bean是有状态的 那就需要开发人员自己来进行线程安全的保证，最简单的办法就是改变bean的作用域 把 “singleton”改为“protopyte” 这样每次请求Bean就相当于是 new Bean() 这样就可以保证线程的安全了。</p>
+<p>　　有状态就是有数据存储功能<br>　　无状态就是不会保存数据
+　　</p>
+<p>　　controller、service和dao层本身并不是线程安全的，只是如果只是调用里面的方法，而且多线程调用一个实例的方法，会在内存中复制变量，这是自己的线程的工作内存，是安全的。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Fish</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/28.html">http://example.com/posts/28.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Fish</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/spring/">spring</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/29.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MQ消息队列</div></div></a></div><div class="next-post pull-right"><a href="/posts/27.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringCloud基础</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="author-info__name">Fish</div><div class="author-info__description">书中自有黄金屋</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Wwwsea/Wwwsea.github.io"><i class="fab fa-home"></i><span>个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wwwsea/Wwwsea.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2667657399&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我们顶峰相见吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%9D%A2%E8%AF%95%E4%B8%93%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">Spring面试专题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Spring%E5%BA%94%E8%AF%A5%E5%BE%88%E7%86%9F%E6%82%89%E5%90%A7%EF%BC%9F%E6%9D%A5%E4%BB%8B%E7%BB%8D%E4%B8%8B%E4%BD%A0%E7%9A%84Spring%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">1.Spring应该很熟悉吧？来介绍下你的Spring的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Spring%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 Spring的发展历程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Spring%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 Spring的组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Spring%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 Spring的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%94%A8%E5%88%B0%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">2.Spring框架中用到了哪些设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 模板模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.5.</span> <span class="toc-text">2.5 工厂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.6.</span> <span class="toc-text">2.6 适配器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.7.</span> <span class="toc-text">2.7 装饰者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.8.</span> <span class="toc-text">2.8 代理模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.9.</span> <span class="toc-text">2.9 策略模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-10-%E8%B4%A3%E4%BB%BB%E9%93%BE%E9%BB%98%E8%AE%A4"><span class="toc-number">3.10.</span> <span class="toc-text">2.10 责任链默认</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-11-%E5%A7%94%E6%89%98%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.11.</span> <span class="toc-text">2.11 委托者模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Autowired%E5%92%8CResource%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">3.Autowired和Resource关键字的区别？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 共同点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 不同点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Spring%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E9%87%8D%E7%82%B9%E4%BB%8B%E7%BB%8D%E5%87%A0%E4%B8%AA"><span class="toc-number">5.</span> <span class="toc-text">4.Spring中常用的注解有哪些，重点介绍几个</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">6.</span> <span class="toc-text">5.循环依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 什么是循环依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 代码演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 分析问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E8%87%AA%E5%B7%B1%E8%A7%A3%E5%86%B3"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 自己解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-Spring%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">6.5.</span> <span class="toc-text">5.5 Spring循环依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-%E7%96%91%E9%97%AE%E7%82%B9"><span class="toc-number">6.6.</span> <span class="toc-text">5.6 疑问点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">6.6.1.</span> <span class="toc-text">为什么需要三级缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E4%B8%89%E7%BA%A7%E7%8E%AF%E5%A2%83%E8%83%BD%E8%A7%A3%E5%86%B3%E5%90%97%EF%BC%9F"><span class="toc-number">6.6.2.</span> <span class="toc-text">没有三级环境能解决吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98%E5%88%86%E5%88%AB%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="toc-number">6.6.3.</span> <span class="toc-text">三级缓存分别什么作用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Spring%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">7.</span> <span class="toc-text">6.Spring的生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-Spring%E4%B8%AD%E6%94%AF%E6%8C%81%E5%87%A0%E7%A7%8D%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">8.</span> <span class="toc-text">7.Spring中支持几种作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E8%AF%B4%E8%AF%B4%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">9.</span> <span class="toc-text">8.说说事务的隔离级别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA"><span class="toc-number">10.</span> <span class="toc-text">9.事务的传播行为</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-PROPAGATION-REQUIRED"><span class="toc-number">10.0.1.</span> <span class="toc-text">1.PROPAGATION_REQUIRED</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PROPAGATION-SUPPORTS"><span class="toc-number">10.0.2.</span> <span class="toc-text">2.PROPAGATION_SUPPORTS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3PROPAGATION-MANDATORY"><span class="toc-number">10.0.3.</span> <span class="toc-text">3PROPAGATION_MANDATORY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-PROPAGATION-REQUIRES-NEW"><span class="toc-number">10.0.4.</span> <span class="toc-text">4.PROPAGATION_REQUIRES_NEW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PROPAGATION-NOT-SUPPORTED"><span class="toc-number">10.0.5.</span> <span class="toc-text">5.PROPAGATION_NOT_SUPPORTED</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-PROPAGATION-NEVER"><span class="toc-number">10.0.6.</span> <span class="toc-text">6.PROPAGATION_NEVER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-PROPAGATION-NESTED"><span class="toc-number">10.0.7.</span> <span class="toc-text">7.PROPAGATION_NESTED</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-Spring%E4%BA%8B%E5%8A%A1%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">11.</span> <span class="toc-text">10.Spring事务实现的方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E4%BA%8B%E5%8A%A1%E6%B3%A8%E8%A7%A3%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">12.</span> <span class="toc-text">11.事务注解的本质是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9BeanFactory%E5%92%8CApplicationContext%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">13.</span> <span class="toc-text">12.谈谈你对BeanFactory和ApplicationContext的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9BeanFactoryPostProcessor%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">14.</span> <span class="toc-text">13.谈谈你对BeanFactoryPostProcessor的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9BeanPostProcessor%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">15.</span> <span class="toc-text">14.谈谈你对BeanPostProcessor的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9SpringMVC%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">16.</span> <span class="toc-text">15.谈谈你对SpringMVC的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9DelegatingFilterProxy%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">17.</span> <span class="toc-text">16.谈谈你对DelegatingFilterProxy的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9SpringBoot%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">18.</span> <span class="toc-text">17.谈谈你对SpringBoot的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-%E4%BB%8B%E7%BB%8D%E4%B8%8BImport%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">19.</span> <span class="toc-text">18.介绍下Import注解的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-SpringBoot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8DeferredImportSelector"><span class="toc-number">20.</span> <span class="toc-text">19.SpringBoot自动装配中为什么用DeferredImportSelector</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-SpringBoot%E4%B8%AD%E6%9C%89%E4%BA%86%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E5%8A%A0%E4%B8%80%E4%B8%AAbootstrap-yml%E6%96%87%E4%BB%B6"><span class="toc-number">21.</span> <span class="toc-text">20.SpringBoot中有了属性文件为什么还要加一个bootstrap.yml文件?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%E5%A6%82%E6%9E%9C%E8%A6%81%E5%AF%B9%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-number">22.</span> <span class="toc-text">21.如果要对属性文件中的账号密码加密如何实现？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-%E8%B0%88%E8%B0%88Indexed%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">23.</span> <span class="toc-text">22.谈谈Indexed注解的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23-Component-Controller-Repository-Service-%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">24.</span> <span class="toc-text">23.@Component, @Controller, @Repository,@Service 有何区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#24-%E6%9C%89%E5%93%AA%E4%BA%9B%E9%80%9A%E7%9F%A5%E7%B1%BB%E5%9E%8B-Advice"><span class="toc-number">25.</span> <span class="toc-text">24.有哪些通知类型(Advice)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#25-%E4%BB%80%E4%B9%88%E6%98%AF-Spring-%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%9F"><span class="toc-number">26.</span> <span class="toc-text">25.什么是 Spring 的依赖注入？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26-Spring-%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E5%8D%95%E4%BE%8B-bean-%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97"><span class="toc-number">27.</span> <span class="toc-text">26.Spring 框架中的单例 bean 是线程安全的吗?</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/32.html" title="MySQL基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn70U.png" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MySQL基础"/></a><div class="content"><a class="title" href="/posts/32.html" title="MySQL基础">MySQL基础</a><time datetime="2023-09-11T06:59:03.000Z" title="发表于 2023-09-11 14:59:03">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/31.html" title="redis基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="redis基础"/></a><div class="content"><a class="title" href="/posts/31.html" title="redis基础">redis基础</a><time datetime="2023-09-11T06:58:37.000Z" title="发表于 2023-09-11 14:58:37">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/29.html" title="MQ消息队列"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgM8O0.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="MQ消息队列"/></a><div class="content"><a class="title" href="/posts/29.html" title="MQ消息队列">MQ消息队列</a><time datetime="2023-09-11T06:58:13.000Z" title="发表于 2023-09-11 14:58:13">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/28.html" title="Spring基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="Spring基础"/></a><div class="content"><a class="title" href="/posts/28.html" title="Spring基础">Spring基础</a><time datetime="2023-09-11T06:57:18.000Z" title="发表于 2023-09-11 14:57:18">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/27.html" title="SpringCloud基础"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/11/pPgn4lq.jpg" onerror="this.onerror=null;this.src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="SpringCloud基础"/></a><div class="content"><a class="title" href="/posts/27.html" title="SpringCloud基础">SpringCloud基础</a><time datetime="2023-09-11T06:56:58.000Z" title="发表于 2023-09-11 14:56:58">2023-09-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Fish</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'dX752Hc7LGu8hhVSwuAwW6FF-MdYXbMMI',
+      appKey: 'vtigGSfIIobVHPC4x3FdrYao',
+      placeholder: '畅所欲言！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: 'dx752hc7.api.lncldglobal.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/posts/28.html'
+    this.page.identifier = 'posts/28.html'
+    this.page.title = 'Spring基础'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xianqi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer id="dsq-count-scr" src="//xianqi.disqus.com/count.js" async></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/js/animate.js"></script><div class="aplayer no-destroy" data-id="4091867406" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="auto" data-autoplay="false" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="//code.tidio.co/prhgttkzeqwkdqfrh5cvonenwrvvz0gi.js" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
