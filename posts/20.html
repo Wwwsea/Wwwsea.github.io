@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2023/09/11/pPgezCR.jpg">
 <meta property="article:published_time" content="2023-09-11T01:16:13.000Z">
-<meta property="article:modified_time" content="2023-09-11T06:38:24.912Z">
+<meta property="article:modified_time" content="2023-09-12T06:02:06.635Z">
 <meta property="article:author" content="Fish">
 <meta property="article:tag" content="java 并发">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-11 14:38:24'
+  postUpdate: '2023-09-12 14:02:06'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -150,7 +150,7 @@
     document.addEventListener('pjax:complete', detectApple)})(window)</script><link defer rel="stylesheet" href="/css/customm.css" ><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/icon.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/background.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/index_ee.css"><meta name="generator" content="Hexo 5.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Fish" type="application/atom+xml">
-</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2023/09/11/pPgezCR.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fish</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">并发编程(01)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-11T01:16:13.000Z" title="发表于 2023-09-11 09:16:13">2023-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-11T06:38:24.912Z" title="更新于 2023-09-11 14:38:24">2023-09-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="并发编程(01)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><blockquote>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/10/25/xRhB6S.png" onerror="onerror=null;src='https://s1.ax1x.com/2022/10/25/xR5PrF.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2023/09/11/pPgezCR.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fish</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">并发编程(01)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-11T01:16:13.000Z" title="发表于 2023-09-11 09:16:13">2023-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-12T06:02:06.635Z" title="更新于 2023-09-12 14:02:06">2023-09-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="并发编程(01)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><blockquote>
 <p>@Author 郑金维</p>
 <p>(上传仅供个人学习交流使用 如有侵权立刻删除)</p>
 </blockquote>
@@ -305,9 +305,9 @@
 <h4 id="2-4-基于线程池构建线程"><a href="#2-4-基于线程池构建线程" class="headerlink" title="2.4 基于线程池构建线程"></a>2.4 基于线程池构建线程</h4><p>追其底层，其实只有一种，实现Runnble</p>
 <h3 id="二、线程的使用"><a href="#二、线程的使用" class="headerlink" title="二、线程的使用"></a><strong>二、线程的使用</strong></h3><h4 id="2-1-线程的状态"><a href="#2-1-线程的状态" class="headerlink" title="2.1 线程的状态"></a>2.1 线程的状态</h4><p>网上对线程状态的描述很多，有5种，6种，7种，都可以接受</p>
 <p>5中状态一般是针对传统的线程状态来说（操作系统层面）</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/b802326396694bd8a4e17ab21a04d348.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgcriF.png"></p>
 <p>Java中给线程准备的6种状态</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/558ee9b72713409c8d9486410aa0074e.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/C0XpnevH.png"></p>
 <p>NEW：Thread对象被创建出来了，但是还没有执行start方法。</p>
 <p>RUNNABLE：Thread对象调用了start方法，就为RUNNABLE状态（CPU调度/没有调度）</p>
 <p>BLOCKED、WAITING、TIME_WAITING：都可以理解为是阻塞、等待状态，因为处在这三种状态下，CPU不会调度当前线程</p>
@@ -680,10 +680,10 @@
 <p><strong>原子性：多线程操作临界资源，预期的结果与最终结果一致。</strong></p>
 <p>通过对这个程序的分析，可以查看出，++的操作，一共分为了三部，首先是线程从主内存拿到数据保存到CPU的寄存器中，然后在寄存器中进行+1操作，最终将结果写回到主内存当中。</p>
 <h3 id="1-2-保证并发编程的原子性"><a href="#1-2-保证并发编程的原子性" class="headerlink" title="1.2 保证并发编程的原子性"></a>1.2 保证并发编程的原子性</h3><h4 id="1-2-1-synchronized"><a href="#1-2-1-synchronized" class="headerlink" title="1.2.1 synchronized"></a>1.2.1 synchronized</h4><p>因为++操作可以从指令中查看到</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/c53311e92c734b248e0c31ef615e8c4f.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgcBIU.png"></p>
 <p>可以在方法上追加synchronized关键字或者采用同步代码块的形式来保证原子性</p>
 <p>synchronized可以让避免多线程同时操作临街资源，同一时间点，只会有一个线程正在操作临界资源</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/4d92d0e53d49438fafa4f2c9710aa398.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgc4IO.png"></p>
 <h4 id="1-2-2-CAS"><a href="#1-2-2-CAS" class="headerlink" title="1.2.2 CAS"></a>1.2.2 CAS</h4><p>到底什么是CAS</p>
 <p>compare and swap也就是比较和交换，他是一条CPU的并发原语。</p>
 <p>他在替换内存的某个位置的值时，首先查看内存中的值与预期值是否一致，如果一致，执行替换操作。这个操作是一个原子性操作。</p>
@@ -713,7 +713,7 @@
 <p><strong>CAS的缺点</strong>：CAS只能保证对一个变量的操作是原子性的，无法实现对多行代码实现原子性。</p>
 <p><strong>CAS的问题</strong>：</p>
 <ul>
-<li><p><strong>ABA问题</strong>：问题如下，可以引入版本号的方式，来解决ABA的问题。Java中提供了一个类在CAS时，针对各个版本追加版本号的操作。 AtomicStampeReference<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/1a90706738b3476d81d038d2648d3c7c.png" alt="image.png"></p>
+<li><p><strong>ABA问题</strong>：问题如下，可以引入版本号的方式，来解决ABA的问题。Java中提供了一个类在CAS时，针对各个版本追加版本号的操作。 AtomicStampeReference<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgchdK.png"></p>
 </li>
 <li><p>AtomicStampedReference在CAS时，不但会判断原值，还会比较版本信息。</p>
 </li>
@@ -825,10 +825,10 @@ public static void main(String[] args) throws InterruptedException {
 <li>如果ThreadLocal引用丢失，key因为弱引用会被GC回收掉，如果同时线程还没有被回收，就会导致内存泄漏，内存中的value无法被回收，同时也无法被获取到。</li>
 <li>只需要在使用完毕ThreadLocal对象之后，及时的调用remove方法，移除Entry即可</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/e5c66dabcdb94dc2b375ba7cdb22471d.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgcgMR.png"></p>
 <h2 id="二、可见性"><a href="#二、可见性" class="headerlink" title="二、可见性"></a><strong>二、可见性</strong></h2><h3 id="2-1-什么是可见性"><a href="#2-1-什么是可见性" class="headerlink" title="2.1 什么是可见性"></a>2.1 什么是可见性</h3><p>可见性问题是基于CPU位置出现的，CPU处理速度非常快，相对CPU来说，去主内存获取数据这个事情太慢了，CPU就提供了L1，L2，L3的三级缓存，每次去主内存拿完数据后，就会存储到CPU的三级缓存，每次去三级缓存拿数据，效率肯定会提升。</p>
 <p>这就带来了问题，现在CPU都是多核，每个线程的工作内存（CPU三级缓存）都是独立的，会告知每个线程中做修改时，只改自己的工作内存，没有及时的同步到主内存，导致数据不一致问题。</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/b3e82a21b18741a1ab3898e3c3ce95a7.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/nSHPpc5C.png"></p>
 <p>可见性问题的代码逻辑</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
@@ -926,7 +926,7 @@ public static void main(String[] args) throws InterruptedException {
 <h4 id="2-2-4-final"><a href="#2-2-4-final" class="headerlink" title="2.2.4 final"></a>2.2.4 final</h4><p>final修饰的属性，在运行期间是不允许修改的，这样一来，就间接的保证了可见性，所有多线程读取final属性，值肯定是一样。</p>
 <p>final并不是说每次取数据从主内存读取，他没有这个必要，而且final和volatile是不允许同时修饰一个属性的</p>
 <p>final修饰的内容已经不允许再次被写了，而volatile是保证每次读写数据去主内存读取，并且volatile会影响一定的性能，就不需要同时修饰。</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/b4dca6c8368846fab361bb8435493e4d.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/SwDN3WAt.png"></p>
 <h2 id="三、有序性"><a href="#三、有序性" class="headerlink" title="三、有序性"></a><strong>三、有序性</strong></h2><h3 id="3-1-什么是有序性"><a href="#3-1-什么是有序性" class="headerlink" title="3.1 什么是有序性"></a>3.1 什么是有序性</h3><p>在Java中，.java文件中的内容会被编译，在执行前需要再次转为CPU可以识别的指令，CPU在执行这些指令时，为了提升执行效率，在不影响最终结果的前提下（满足一些要求），会对指令进行重排。</p>
 <p>指令乱序执行的原因，是为了尽可能的发挥CPU的性能。</p>
 <p>Java中的程序是乱序执行的。</p>
@@ -994,7 +994,7 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
 <span class="token comment">// 这里即便出现了指令重排，也不可以影响最终的结果，20100</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-3-happens-before"><a href="#3-3-happens-before" class="headerlink" title="3.3 happens-before"></a>3.3 happens-before</h3><p><strong>具体规则：</strong></p>
-<p>  　　1. 单线程happen-before原则：在同一个线程中，书写在前面的操作happen-before后面的操作。<br>    　　2. 锁的happen-before原则：同一个锁的unlock操作happen-before此锁的lock操作。<br>      　　3. volatile的happen-before原则： 对一个volatile变量的写操作happen-before对此变量的任意操作。<br>        　　4. happen-before的传递性原则： 如果A操作 happen-before B操作，B操作happen-before C操作，那么A操作happen-before C操作。<br>          　　5. 线程启动的happen-before原则：同一个线程的start方法happen-before此线程的其它方法。<br>            　　6. 线程中断的happen-before原则：对线程interrupt方法的调用happen-before被中断线程的检测到中断发送的代码。<br>              　　7. 线程终结的happen-before原则：线程中的所有操作都happen-before线程的终止检测。<br>                　　8. 对象创建的happen-before原则：一个对象的初始化完成先于他的finalize方法调用。<br>             　　      　　      　　<strong>JMM只有在不出现上述8中情况时，才不会触发指令重排效果。</strong></p>
+<p>  　　1. 单线程happen-before原则：在同一个线程中，书写在前面的操作happen-before后面的操作。<br>        　　2. 锁的happen-before原则：同一个锁的unlock操作happen-before此锁的lock操作。<br>              　　3. volatile的happen-before原则： 对一个volatile变量的写操作happen-before对此变量的任意操作。<br>                    　　4. happen-before的传递性原则： 如果A操作 happen-before B操作，B操作happen-before C操作，那么A操作happen-before C操作。<br>          　　5. 线程启动的happen-before原则：同一个线程的start方法happen-before此线程的其它方法。<br>                  　　6. 线程中断的happen-before原则：对线程interrupt方法的调用happen-before被中断线程的检测到中断发送的代码。<br>                         　　7. 线程终结的happen-before原则：线程中的所有操作都happen-before线程的终止检测。<br>                               　　8. 对象创建的happen-before原则：一个对象的初始化完成先于他的finalize方法调用。<br>                                  　　      　　      　　<strong>JMM只有在不出现上述8中情况时，才不会触发指令重排效果。</strong></p>
 <p>不需要过分的关注happens-before原则，只需要可以写出线程安全的代码就可以了。</p>
 <h3 id="3-4-volatile"><a href="#3-4-volatile" class="headerlink" title="3.4 volatile"></a>3.4 volatile</h3><p>如果需要让程序对某一个属性的操作不出现指令重排，除了满足happens-before原则之外，还可以基于volatile修饰属性，从而对这个属性的操作，就不会出现指令重排的问题了。</p>
 <p>volatile如何实现的禁止指令重排？</p>
@@ -1096,9 +1096,9 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
 </ul>
 <h3 id="2-3-synchronized实现原理"><a href="#2-3-synchronized实现原理" class="headerlink" title="2.3 synchronized实现原理"></a>2.3 synchronized实现原理</h3><p>synchronized是基于对象实现的。</p>
 <p>先要对Java中对象在堆内存的存储有一个了解。</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/5960ce8eb65d44c299d542fea1b61781.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/SeOXzxER.png"></p>
 <p>展开MarkWord</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg-blog.csdnimg.cn%2F20200314202610433.png%3Fx-oss-process%3Dimage%2Fwatermark%2Ctype_ZmFuZ3poZW5naGVpdGk%2Cshadow_10%2Ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ludHJvbmNoZW5n%2Csize_16%2Ccolor_FFFFFF%2Ct_70&amp;refer=http%3A%2F%2Fimg-blog.csdnimg.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1659024071&amp;t=5135a8e6d07b807c6bb771ceafd8a227"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/K4zuTd4U.png"></p>
 <p>MarkWord中标记着四种锁的信息：无锁、偏向锁、轻量级锁、</p>
 <h3 id="2-4-synchronized的锁升级"><a href="#2-4-synchronized的锁升级" class="headerlink" title="2.4 synchronized的锁升级"></a>2.4 synchronized的锁升级</h3><p>为了可以在Java中看到对象头的MarkWord信息，需要导入依赖</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
@@ -1132,9 +1132,9 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>整个锁升级状态的转变：</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/20d71edbf3dd438b95358d0169b69226.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/JzPpl803.png"></p>
 <p>Lock Record以及ObjectMonitor存储的内容</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/616fb837af0c4bcfac43e281d3d22e08.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/YyhCtj2q.png"></p>
 <h3 id="2-5-重量锁底层ObjectMonitor"><a href="#2-5-重量锁底层ObjectMonitor" class="headerlink" title="2.5 重量锁底层ObjectMonitor"></a>2.5 重量锁底层ObjectMonitor</h3><p>需要去找到openjdk，在百度中直接搜索openjdk，第一个链接就是</p>
 <p>找到ObjectMonitor的两个文件，hpp，cpp</p>
 <p>先查看核心属性：<a target="_blank" rel="noopener" href="http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/69087d08d473/src/share/vm/runtime/objectMonitor.hpp">http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/69087d08d473/src/share/vm/runtime/objectMonitor.hpp</a></p>
@@ -1313,9 +1313,9 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>AQS内部结构和属性</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/6f1f8f1f2ff4494c81adddef4a0897e6.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/54OJxGVW.png"></p>
 <h3 id="3-3-加锁流程源码剖析"><a href="#3-3-加锁流程源码剖析" class="headerlink" title="3.3 加锁流程源码剖析"></a>3.3 加锁流程源码剖析</h3><h4 id="3-3-1-加锁流程概述"><a href="#3-3-1-加锁流程概述" class="headerlink" title="3.3.1 加锁流程概述"></a>3.3.1 加锁流程概述</h4><p>这个是非公平锁的流程</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/d25877e5d048450180f19d97a0778fba.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgc2s1.png"></p>
 <h4 id="3-3-2-三种加锁源码分析"><a href="#3-3-2-三种加锁源码分析" class="headerlink" title="3.3.2 三种加锁源码分析"></a>3.3.2 三种加锁源码分析</h4><h5 id="3-3-2-1-lock方法"><a href="#3-3-2-1-lock方法" class="headerlink" title="3.3.2.1 lock方法"></a>3.3.2.1 lock方法</h5><ol>
 <li><p>执行lock方法后，公平锁和非公平锁的执行套路不一样</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 非公平锁</span>
@@ -1587,8 +1587,14 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>取消节点分析：<img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/c283fb2473a8401985b9f874cb222f40.png" alt="image.png"></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 取消在AQS中排队的Node</span>
+<li><p>取消节点分析：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgc6z9.png"></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">```java
+<span class="token comment">// 取消在AQS中排队的Node</span>
 <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">cancelAcquire</span><span class="token punctuation">(</span><span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 如果当前节点为null，直接忽略。</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
@@ -1631,12 +1637,9 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
 
         node<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span> <span class="token comment">// help GC</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-</li>
-</ul>
-</li>
-</ul>
 <h5 id="3-3-2-3-lockInterruptibly方法"><a href="#3-3-2-3-lockInterruptibly方法" class="headerlink" title="3.3.2.3 lockInterruptibly方法"></a>3.3.2.3 lockInterruptibly方法</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 这个是lockInterruptibly和tryLock(time,unit)唯一的区别</span>
 <span class="token comment">// lockInterruptibly，拿不到锁资源，就死等，等到锁资源释放后，被唤醒，或者是被中断唤醒</span>
 <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">doAcquireInterruptibly</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
@@ -1668,7 +1671,7 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
     <span class="token keyword">return</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">interrupted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-4-释放锁流程源码剖析"><a href="#3-4-释放锁流程源码剖析" class="headerlink" title="3.4 释放锁流程源码剖析"></a>3.4 释放锁流程源码剖析</h3><h4 id="3-4-1-释放锁流程概述"><a href="#3-4-1-释放锁流程概述" class="headerlink" title="3.4.1 释放锁流程概述"></a>3.4.1 释放锁流程概述</h4><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/33b1deba4dd94713b2f6071e54813fe2.png" alt="image.png"></p>
+<h3 id="3-4-释放锁流程源码剖析"><a href="#3-4-释放锁流程源码剖析" class="headerlink" title="3.4 释放锁流程源码剖析"></a>3.4 释放锁流程源码剖析</h3><h4 id="3-4-1-释放锁流程概述"><a href="#3-4-1-释放锁流程概述" class="headerlink" title="3.4.1 释放锁流程概述"></a>3.4.1 释放锁流程概述</h4><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/qVC08zwU.png"></p>
 <h4 id="3-4-2-释放锁源码分析"><a href="#3-4-2-释放锁源码分析" class="headerlink" title="3.4.2 释放锁源码分析"></a>3.4.2 释放锁源码分析</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 释放锁资源不分为公平锁和非公平锁，都是一个sync对象</span>
     sync<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2182,7 +2185,7 @@ j <span class="token operator">+</span> <span class="token number">100</span><sp
 <p><strong>读锁重入</strong>：因为读锁是共享锁。读锁在获取锁资源操作时，是要对state的高16位进行 + 1操作。因为读锁是共享锁，所以同一时间会有多个读线程持有读锁资源。这样一来，多个读操作在持有读锁时，无法确认每个线程读锁重入的次数。为了去记录读锁重入的次数，每个读操作的线程，都会有一个ThreadLocal记录锁重入的次数。</p>
 <p><strong>写锁的饥饿问题</strong>：读锁是共享锁，当有线程持有读锁资源时，再来一个线程想要获取读锁，直接对state修改即可。在读锁资源先被占用后，来了一个写锁资源，此时，大量的需要获取读锁的线程来请求锁资源，如果可以绕过写锁，直接拿资源，会造成写锁长时间无法获取到写锁资源。</p>
 <p><strong>读锁在拿到锁资源后，如果再有读线程需要获取读锁资源，需要去AQS队列排队。如果队列的前面需要写锁资源的线程，那么后续读线程是无法拿到锁资源的。持有读锁的线程，只会让写锁线程之前的读线程拿到锁资源</strong></p>
-<h3 id="三、写锁分析"><a href="#三、写锁分析" class="headerlink" title="三、写锁分析"></a>三、写锁分析</h3><h4 id="3-1-写锁加锁流程概述"><a href="#3-1-写锁加锁流程概述" class="headerlink" title="3.1 写锁加锁流程概述"></a>3.1 写锁加锁流程概述</h4><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/09215181ecf44581aa9b0e464e05b418.png" alt="image.png"></p>
+<h3 id="三、写锁分析"><a href="#三、写锁分析" class="headerlink" title="三、写锁分析"></a>三、写锁分析</h3><h4 id="3-1-写锁加锁流程概述"><a href="#3-1-写锁加锁流程概述" class="headerlink" title="3.1 写锁加锁流程概述"></a>3.1 写锁加锁流程概述</h4><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/s7uFzkgl.png"></p>
 <h4 id="3-2-写锁加锁源码分析"><a href="#3-2-写锁加锁源码分析" class="headerlink" title="3.2 写锁加锁源码分析"></a>3.2 写锁加锁源码分析</h4><p>写锁加锁流程</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 写锁加锁的入口</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2264,7 +2267,7 @@ state <span class="token operator">&amp;</span> <span class="token punctuation">
 <p>2、分析读锁的可重入锁实现以及优化</p>
 <p>3、解决ThreadLocal内存泄漏问题</p>
 <p>4、读锁获取锁自后，如果唤醒AQS中排队的读线程</p>
-<h4 id="4-1-1-基础读锁流程"><a href="#4-1-1-基础读锁流程" class="headerlink" title="4.1.1 基础读锁流程"></a>4.1.1 基础读锁流程</h4><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/08d73c23a8654fe2867269d63678cdee.png" alt="image.png"></p>
+<h4 id="4-1-1-基础读锁流程"><a href="#4-1-1-基础读锁流程" class="headerlink" title="4.1.1 基础读锁流程"></a>4.1.1 基础读锁流程</h4><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/DdyM50PQ.png"></p>
 <p>针对上述简单逻辑的源码分析</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 读锁加锁的方法入口</span>
 <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">acquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2580,7 +2583,7 @@ state <span class="token operator">&amp;</span> <span class="token punctuation">
 <h2 id="五、死锁问题"><a href="#五、死锁问题" class="headerlink" title="五、死锁问题"></a>五、<strong>死锁问题</strong></h2><p>在咱们的操作系统2022版本有，已经有最新的死锁课程了，这里就不做过多讲解</p>
 <p>查看这个课程：</p>
 <p><a target="_blank" rel="noopener" href="https://www.mashibing.com/course/1368">https://www.mashibing.com/course/1368</a></p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/3a3563ce1673493787f97aeac99dc5e4.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgcRqx.png"></p>
 <h1 id="四、阻塞队列"><a href="#四、阻塞队列" class="headerlink" title="四、阻塞队列"></a>四、<strong>阻塞队列</strong></h1><h2 id="一、基础概念-1"><a href="#一、基础概念-1" class="headerlink" title="一、基础概念"></a>一、<strong>基础概念</strong></h2><h3 id="1-1-生产者消费者概念"><a href="#1-1-生产者消费者概念" class="headerlink" title="1.1 生产者消费者概念"></a>1.1 生产者消费者概念</h3><p>生产者消费者是设计模式的一种。让生产者和消费者基于一个容器来解决强耦合问题。</p>
 <p>生产者 消费者彼此之间不会直接通讯的，而是通过一个容器（队列）进行通讯。</p>
 <p>所以生产者生产完数据后扔到容器中，不通用等待消费者来处理。</p>
@@ -3139,7 +3142,7 @@ sync <span class="token operator">-&gt;</span> wait <span class="token operator"
 <p>会将查询的数据进行排序，排序的方式就是基于插入数据值的本身。</p>
 <p><strong>如果是自定义对象必须要实现Comparable接口才可以添加到优先级队列</strong></p>
 <p>排序的方式是基于<strong>二叉堆</strong>实现的。底层是采用数据结构实现的二叉堆。</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/b0cc492556d746a3a2c1ac9f31e06dde.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/YEVra5pU.png"></p>
 <h3 id="4-2-二叉堆结构介绍"><a href="#4-2-二叉堆结构介绍" class="headerlink" title="4.2 二叉堆结构介绍"></a>4.2 二叉堆结构介绍</h3><p>优先级队列PriorityBlockingQueue基于二叉堆实现的。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">transient</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> queue<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -3151,7 +3154,7 @@ sync <span class="token operator">-&gt;</span> wait <span class="token operator"
 <li>基于同步的方式，可以定义出小顶堆和大顶堆</li>
 </ul>
 <p>小顶堆以及小顶堆基于数据实现的方式。</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/be0f3126b64443d1bf1e05299f33d71a.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgcsG4.png"></p>
 <h3 id="4-3-PriorityBlockingQueue核心属性"><a href="#4-3-PriorityBlockingQueue核心属性" class="headerlink" title="4.3 PriorityBlockingQueue核心属性"></a>4.3 PriorityBlockingQueue核心属性</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 数组的初始长度</span>
 <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> DEFAULT_INITIAL_CAPACITY <span class="token operator">=</span> <span class="token number">11</span><span class="token punctuation">;</span>
 
@@ -3781,8 +3784,8 @@ sync <span class="token operator">-&gt;</span> wait <span class="token operator"
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>TransferQueue的特点</p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/8c0df115166f4202b14a89a11b849c00.png" alt="image.png"></p>
-<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2746/1654095150060/c6fe53bff00f468f90440012c507ef2e.png" alt="image.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://img1.imgtp.com/2023/09/12/SuGtcWFo.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/09/12/pPgcyRJ.png"></p>
 <p>代码查看效果</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
     <span class="token comment">// 因为当前队列不存在数据，没有长度的概念。</span>
